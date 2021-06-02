@@ -1,62 +1,62 @@
-#Autoscaling
+# Autoscaling
 온디맨드로 규모를 조정한다.  
 
-##스케일 업-다운
+## 스케일 업-다운
 확장과 축소. 수직적 확장.  
 
-##스케일 인-아웃
+## 스케일 인-아웃
 개수를 늘리고 줄인다. 수평적 확장.  
 
-##ELB
+## ELB
 Elastic Load Balancing  
 여러 대상에 자동으로 트래픽을 분산한다.  
 4 / 7 로드 밸런싱을 지원한다.  
 ELB만 퍼블릭으로 두고 내부는 다 프라이빗으로 전환하는 경우 강력한 보안 기능을 제공한다.  
 
-##로드 밸런서 유형
-###Application Load Balancer
+## 로드 밸런서 유형
+### Application Load Balancer
 HTTP, HTTPS 트래픽의 로드밸런싱  
 www.주소/path/path에서 path를 포함하여 로드밸런싱할 수 있다.  
 유연한 어플리케이션 관리가 가능하다.  
 기능이 가장 많기 때문에 대부분 ALB를 사용한다.  
 7계층에서 운영된다.
 
-###Network Load Balancer
+### Network Load Balancer
 TCP 트래픽의 로드밸런싱  
 고정 IP를 가져야 하는 경우, 갑작스런 트래픽 증가가 일어날 수 있는 경우 등 네트워크를 써야하는 경우에 사용한다.  
 애플리케이션에 대한 성능 및 정적 IP를 제공한다.  
 4계층에서 운영된다.  
 
-###Gateway Load Balancer
+### Gateway Load Balancer
 가상 네트워킹 어플라이언스를 통한 트래픽 로드밸런싱  
 3계증, 4계층에서 운영된다.  
 일반적으로 잘 사용하지 않는다.  
 외부 VPC와의 트래픽(서드파티)을 처리하기 위해 사용된다. 
 
-###Classic Load Balancer
+### Classic Load Balancer
 이전 세대의 로드밸런싱
 
-##EC2 Autoscaling
+## EC2 Autoscaling
 자동으로 ec2 인스턴스를 시작 또는 종료한다.  
 수요에 맞춰 확장하고 비용을 절감할 수 있도록 축소해준다.  
 set-desired-capacity 값을 바꿈으로써 설정한다.  
 
-##EC2 Autoscaling과 ELB
+## EC2 Autoscaling과 ELB
 ELB와 통합 가능하다.  
 새로운 인스턴스가 시작되면 ELB에게 알려준다.  
 헬스체크되는 경우 트래픽을 쏴주게 된다.  
 
-##주의!
+## 주의!
 축소할 때는 천천히 축소해야 한다.
 
-##Route 53
+## Route 53
 리전 간에 트래픽을 분산하는데 사용된다.  
 확장 가능한 DNS 웹 서비스.  
 
-##블루/그린 배포
+## 블루/그린 배포
 기존(블루)의 시스템을 새(그린) 시스템으로 이전하는 작업이다.   
 조금조금씩 Route 53이 블루 시스템의 트래픽을 그린 시스템으로 옮겨준다.  
 무중단 배포할 때 많이 사용하는 방식이다.  
 
-##부하 테스트
+## 부하 테스트
 부하를 생성하는 인스턴스를 VPC 내부에 두고 내부에서 테스트하는게 정확하다.  
