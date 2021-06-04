@@ -15,6 +15,7 @@ VMware의 ESXi, Microsoft의 Hyper-V, Linux의 KVM과 같은 제품이 사용된
 
 ## 차이점
 
+![이미지!](https://postfiles.pstatic.net/MjAyMTA2MDRfMjU2/MDAxNjIyODEwNDgyNDY5.9uzm_sO6yzN4JmcmlSXyCwP5c1ezYOudE6S0CCeiHGEg.xejshI6spFYc-ajVMIpYH7n0bqsZC3OvtNKqWemgArkg.PNG.y_jaein/image.png?type=w966)
 하이퍼바이저에 의한 가상화와 컨테이너에 의한 가상화는 둘 다 분리된 애플리케이션 실행 환경을 제공해 준다는 점은 같다. 차이점은 OS에 있다.  
 
 가상화로 만들어진 가상 머신들은 각각에 OS를 가동시켜야 하므로 가상 머신별로 프로세서나 메모리를 소비하며 스토리지도 필요하다. 반면에 컨테이너들은 하나의 OS에서 가동되므로 리소스 소비가 적고 스토리지의 사용량도 극히 적다. 가상 머신과 비교해서 기동 시간도 짧다. 따라서 동일한 성능의 하드웨어라면 보다 많은 컨테이너를 동시에 작동시킬 수 있다.  
