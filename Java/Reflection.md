@@ -16,4 +16,5 @@ Reflection은 애플리케이션 개발보다는 프레임워크나 라이브러
 Spring의 BeanFactory, Spring Data JPA에서 Entity에 기본 생성자가 필요한 이유, IntelliJ의 자동 완성, Jackson 라이브러리, Hibernate 등
 
 ## 참고
+https://dundung.tistory.com/222  
 https://woowacourse.github.io/javable/post/2020-07-16-reflection-api/  
