@@ -98,7 +98,7 @@ memberRepository.findByName(name);
 ```
 이 방법을 통해 Repository의 의존성을 줄일 수 있다.
 
-## 방법 3 : Querydsl만으로 Repository 구성
+## 방법 3 : Querydsl만으로 Repository 구성 (추천)
 
 ```java
 @RequiredArgsConstructor
@@ -112,10 +112,9 @@ public class MemberRepository {
                 .select(member)
                 ...
     }
-}
-최소한의 Bean 등록을 위해 @Repository를 선언해준다. 이후 별도의 상속, 구현 없이 JPAQueryFactory만으로 쿼리를 작성한다. 
-
+} 
 ```
+최소한의 Bean 등록을 위해 @Repository를 선언해준다. 이후 별도의 상속, 구현 없이 JPAQueryFactory만으로 쿼리를 작성한다.
 
 ## 참고
 https://jojoldu.tistory.com/372  
