@@ -18,5 +18,5 @@ select(asString(imageDomain).concat(member.imageUrl.stringValue()))
 ## 방법 2
 ```java
 select(member.username.concat("_").concat(member.age.stringValue()))
-// 결과: member_24
+// 결과: kim_24
 ```
