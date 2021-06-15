@@ -15,7 +15,7 @@ Domain model
 ## Entity와 DTO를 분리하는 이유
 
 - View Layer와 DB Layer 역할을 철저하게 분리하기 위해.  
-  - 테이블과 매핑되는 Entity 클래스가 변경되면 여러 클래스에 영향을 끼치게 된다. View Layer와 통신하는 DTO 클래스(Request/Response 클래스)는 자주 변경되므로 분리하는 것이 좋다. 비즈니스 로직에서 실시간으로 엔티티 변경이 필요한 경우에만 Entity 조회를 사용하도록 한다ㅣ.
+  - 테이블과 매핑되는 Entity 클래스가 변경되면 여러 클래스에 영향을 끼치게 된다. View Layer와 통신하는 DTO 클래스(Request/Response 클래스)는 자주 변경되므로 분리하는 것이 좋다. 비즈니스 로직에서 실시간으로 엔티티 변경이 필요한 경우에만 Entity 조회를 사용하도록 한다.
 
 ## DTO를 반드시 사용해야 하는 이유
 
