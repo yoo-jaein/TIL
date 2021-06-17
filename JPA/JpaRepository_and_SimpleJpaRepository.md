@@ -10,7 +10,7 @@ JpaRepository는 PagingAndSortingRepository를 상속하는 인터페이스이�
 ## SimpleJpaRepository
 org.springframework.data.jpa.repository.support.SimpleJpaRepository    
 
-SimpleJpaRepository는 JpaRepository의 구현체이다. delete(T entity), deleteById(ID id), findById(ID id), save(S entity), count(Example<S> example), exist(Example<S> example) 등의 기능을 제공한다.  
+SimpleJpaRepository는 JpaRepository의 구현체이다. delete(T entity), deleteById(ID id), findById(ID id), save(S entity), count(Example<S\> example), exist(Example<S\> example) 등의 기능을 제공한다.  
 
 ## SimpleJpaRepository 들여다보기
 1. 클래스에 @Repository 적용  
