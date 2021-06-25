@@ -1,4 +1,4 @@
-# QueryRepositorySupport
+# QuerydslRepositorySupport
 Querydsl 라이브러리를 이용하여 Repository를 구현하기 위한 클래스  
 
 ## 장점
