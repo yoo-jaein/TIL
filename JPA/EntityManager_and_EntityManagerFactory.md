@@ -19,7 +19,7 @@ EntityManager em = emf.createEntityManager();
 엔티티 매니저는 여러 스레드가 동시에 접근하면 동시성 문제가 발생하므로 스레드 간에 절대 공유하면 안 된다.
 
 ## Spring에서 엔티티 매니저
-
+https://github.com/yoo-jaein/TIL/blob/main/JPA/Container_vs_Application_managed_EntityManager.md
 
 ## 참고
 자바 ORM 표준 JPA 프로그래밍 3장  
