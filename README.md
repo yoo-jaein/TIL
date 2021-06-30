@@ -5,7 +5,7 @@
 __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## 📌 INDEX
-### AWS
+## AWS
 - [Autoscaling](https://github.com/yoo-jaein/TIL/blob/main/AWS/Autoscaling.md) : 로드 밸런서와 AWS EC2의 오토스케일링
 - [Container](https://github.com/yoo-jaein/TIL/blob/main/AWS/Container.md) : AWS의 가상화/컨테이너 도구
 - [Database](https://github.com/yoo-jaein/TIL/blob/main/AWS/Database.md) : AWS의 데이터베이스 종류(RDS, Aurora, DynamoDB, ElastiCache 등)와 마이그레이션
