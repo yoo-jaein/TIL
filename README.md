@@ -64,6 +64,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [vi](https://github.com/yoo-jaein/TIL/blob/main/Linux/vi.md) : 리눅스 vi 편집기의 모드와 명령어 모음
 
 ## Spring
+- [@Configuration](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40Configuration.md) : 스프링 설정 클래스의 @Configuration
 - [Controller and Service](https://github.com/yoo-jaein/TIL/blob/main/Spring/Controller_and_Service.md) : 스프링 컨트롤러와 서비스의 개념
 - [Entity and DTO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Entity_and_DTO.md) : 엔티티와 DTO의 개념, DTO를 반드시 사용해야 하는 이유
 - [Error and Exception](https://github.com/yoo-jaein/TIL/blob/main/Spring/Error_and_Exception.md) : 자바 Error와 Exception의 개념, 예외 처리 방법
