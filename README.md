@@ -68,8 +68,9 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Controller and Service](https://github.com/yoo-jaein/TIL/blob/main/Spring/Controller_and_Service.md) : 스프링 컨트롤러와 서비스의 개념
 - [Entity and DTO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Entity_and_DTO.md) : 엔티티와 DTO의 개념, DTO를 반드시 사용해야 하는 이유
 - [Error and Exception](https://github.com/yoo-jaein/TIL/blob/main/Spring/Error_and_Exception.md) : 자바 Error와 Exception의 개념, 예외 처리 방법
+- [Spring](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring.md) : 스프링 프레임워크
 - [Spring boot test class annotation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_boot_test_class_annotation.md) : 스프링 부트의 테스트 클래스 어노테이션 종류(@SpringBootTest, @WebMvcTest, @DataJpaTest)
-- [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Conatiner.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
+- [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Container.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
 - [Why use service and serviceimpl](https://github.com/yoo-jaein/TIL/blob/main/Spring/Why_use_service_and_serviceimpl.md) : 스프링으로 개발할 때 서비스 인터페이스와 서비스 구현 클래스를 두는 이유
 
 ## Web
