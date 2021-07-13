@@ -19,6 +19,14 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Architecture
 - [Monolithic vs Microservices](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Monolithic_vs_Microservices.md) : 모놀리식과 마이크로서비스 아키텍처
 
+## Batch
+- [Job](https://github.com/yoo-jaein/TIL/blob/main/Batch/Job.md) : 잡
+- [JobExecutionListener](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobExecutionListener.md) : 잡 리스너
+- [JobParameters](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobParameters.md) : 잡 파라미터
+- [Spring Batch](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch.md) : 스프링 배치 프레임워크
+- [Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Step.md) : 스텝
+- [StepExecutionListener](https://github.com/yoo-jaein/TIL/blob/main/Batch/StepExecutionListener.md) : 스텝 리스너
+
 ## Database
 - [MySQL auto_increment and Rollback](https://github.com/yoo-jaein/TIL/blob/main/Database/MySQL_auto_increment_and_Rollback.md) : MySQL에서 트랜잭션 롤백이 일어날 때 auto_increment 컬럼의 값은 어떻게 될까?
 
