@@ -25,6 +25,8 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Job](https://github.com/yoo-jaein/TIL/blob/main/Batch/Job.md) : 잡
 - [JobExecutionListener](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobExecutionListener.md) : 잡 리스너
 - [JobParameters](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobParameters.md) : 잡 파라미터
+- [JpaPagingItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/JpaPagingItemReader.md) : JpaPagingItemReader
+- [RepositoryItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/RepositoryItemReader.md) : RepositoryItemReader
 - [Spring Batch](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch.md) : 스프링 배치 프레임워크
 - [Spring Batch Exception Handling](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch_Exception_Handling.md) : 스프링 배치에서 에러 핸들링하는 세 가지 방법
 - [Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Step.md) : 스텝
