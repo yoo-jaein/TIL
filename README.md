@@ -29,6 +29,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [RepositoryItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/RepositoryItemReader.md) : RepositoryItemReader
 - [Spring Batch](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch.md) : 스프링 배치 프레임워크
 - [Spring Batch Exception Handling](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch_Exception_Handling.md) : 스프링 배치에서 에러 핸들링하는 세 가지 방법
+- [Spring Batch Test BeanCreationException](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch_Test_BeanCreationException.md) : 스프링 배치에서 Job을 테스트할 때 발생되는 BeanCreationException을 해결하는 방법
 - [Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Step.md) : 스텝
 - [StepExecutionListener](https://github.com/yoo-jaein/TIL/blob/main/Batch/StepExecutionListener.md) : 스텝 리스너
 - [Tasklet Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Tasklet_Step.md) : Tasklet 스텝
@@ -69,6 +70,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [findById() vs getOne()](https://github.com/yoo-jaein/TIL/blob/main/JPA/findById()_vs_getOne().md) :  findById()와 getOne()의 차이점, 메서드 이름에서 find-와 get-의 구분
 
 ## Java
+- [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
 - [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
 - [Method Overloading](https://github.com/yoo-jaein/TIL/blob/main/Java/Method_Overloading.md) : 자바 메서드 오버로딩의 조건과 개념, 주의 사항
 - [Reflection](https://github.com/yoo-jaein/TIL/blob/main/Java/Reflection.md) : 자바 Reflection API
