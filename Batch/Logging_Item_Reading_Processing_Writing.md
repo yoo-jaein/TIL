@@ -71,7 +71,7 @@ public class MemberWriteListener implements ItemWriteListener<String> {
 
 	@Override
 	public void onWriteError(Exception exception, List<? extends String> items) {
-        log.error("MemberWriteListener - Error message={}", ex.getMessage());
+		log.error("MemberWriteListener - Error message={}", ex.getMessage());
 	}
 }
 ```
