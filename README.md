@@ -27,6 +27,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [JobParameters](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobParameters.md) : 잡 파라미터
 - [JobRepository](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobRepository.md) : JobRepository 스키마와 6개의 테이블
 - [JpaPagingItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/JpaPagingItemReader.md) : JpaPagingItemReader
+- [Logging Item Reading Processing Writing](https://github.com/yoo-jaein/TIL/blob/main/Batch/Logging_Item_Reading_Processing_Writing.md) : 스프링 배치에서 Item을 Read, Process, Write할 때 로그를 찍는 방법
 - [RepositoryItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/RepositoryItemReader.md) : RepositoryItemReader
 - [Spring Batch](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch.md) : 스프링 배치 프레임워크
 - [Spring Batch Exception Handling](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch_Exception_Handling.md) : 스프링 배치에서 에러 핸들링하는 세 가지 방법
