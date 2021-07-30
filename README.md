@@ -22,6 +22,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Batch
 - [Chunk based Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunk_based_Step.md) : 청크 기반 스텝
 - [Chunksize](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunksize.md) : 청크 크기 정의하기
+- [Cron expression](https://github.com/yoo-jaein/TIL/blob/main/Batch/Cron_expression.md) : 크론 표현식
 - [Job](https://github.com/yoo-jaein/TIL/blob/main/Batch/Job.md) : 잡
 - [JobExecutionListener](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobExecutionListener.md) : 잡 리스너
 - [JobParameters](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobParameters.md) : 잡 파라미터
