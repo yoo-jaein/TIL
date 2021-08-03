@@ -75,6 +75,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Java
 - [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
+- [JUnit4션 annotations](https://github.com/yoo-jaein/TIL/blob/main/Java/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
 - [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
 - [log4j Logging level](https://github.com/yoo-jaein/TIL/blob/main/Java/log4j_Logging_level.md) : log4j의 로그 레벨과 레벨에 따른 작동 방식
 - [Method Overloading](https://github.com/yoo-jaein/TIL/blob/main/Java/Method_Overloading.md) : 자바 메서드 오버로딩의 조건과 개념, 주의 사항
