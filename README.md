@@ -75,7 +75,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Java
 - [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
-- [JUnit4션 annotations](https://github.com/yoo-jaein/TIL/blob/main/Java/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
+- [JUnit4 annotations](https://github.com/yoo-jaein/TIL/blob/main/Java/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
 - [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
 - [log4j Logging level](https://github.com/yoo-jaein/TIL/blob/main/Java/log4j_Logging_level.md) : log4j의 로그 레벨과 레벨에 따른 작동 방식
 - [Method Overloading](https://github.com/yoo-jaein/TIL/blob/main/Java/Method_Overloading.md) : 자바 메서드 오버로딩의 조건과 개념, 주의 사항
@@ -87,6 +87,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Spring
 - [@Configuration](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40Configuration.md) : 스프링 설정 클래스의 @Configuration
+- [@MockBean](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40MockBean.md) : 스프링 부트 테스트 어노테이션 @MockBean
 - [Controller and Service](https://github.com/yoo-jaein/TIL/blob/main/Spring/Controller_and_Service.md) : 스프링 컨트롤러와 서비스의 개념
 - [Entity and DTO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Entity_and_DTO.md) : 엔티티와 DTO의 개념, DTO를 반드시 사용해야 하는 이유
 - [Error and Exception](https://github.com/yoo-jaein/TIL/blob/main/Spring/Error_and_Exception.md) : 자바 Error와 Exception의 개념, 예외 처리 방법
