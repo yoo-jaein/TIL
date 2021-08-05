@@ -45,13 +45,13 @@ public Step importTransactionFileStep() {
 @Bean
 public Step step1() {
 	return this.stepBuilderFactory.get("step1")
-				.<String, String>chunk(10)
-				.reader(flatFileItemReader())
-				.writer(itemWriter())
-				.faultTolerant()
-				.skipLimit(10)
-				.skip(FlatFileParseException.class)
-				.build();
+        .<String, String>chunk(10)
+        .reader(flatFileItemReader())
+        .writer(itemWriter())
+        .faultTolerant()
+        .skipLimit(10)
+        .skip(FlatFileParseException.class)
+        .build();
 }
 ```
 위의 코드에서는 FlatFileParseException이 발생하면 항목을 스킵하고 스킵에 대한 카운트를 한다. skipLimit 값인 10번째까지 스킵을 할 수 있으며, 11번째 스킵에서 Exception을 발생시키고 스텝이 실패하게 된다. 만약 FlatFileParseException이 아닌 다른 예외가 발생한다면 그대로 잡이 실패하게 된다.  
@@ -61,14 +61,14 @@ public Step step1() {
 @Bean
 public Step step1() {
 	return this.stepBuilderFactory.get("step1")
-				.<String, String>chunk(10)
-				.reader(flatFileItemReader())
-				.writer(itemWriter())
-				.faultTolerant()
-				.skipLimit(10)
-				.skip(Exception.class)
-				.noSkip(FileNotFoundException.class)
-				.build();
+        .<String, String>chunk(10)
+        .reader(flatFileItemReader())
+        .writer(itemWriter())
+        .faultTolerant()
+        .skipLimit(10)
+        .skip(Exception.class)
+        .noSkip(FileNotFoundException.class)
+        .build();
 }
 ```
 위의 코드에서는 java.lang.Exception을 스킵 가능한 클래스로, FileNotFoundException은 스킵할 수 없는 클래스로 설정했다. skip()과 noSkip() 메서드의 호출 순서는 상관 없다. 
@@ -87,13 +87,13 @@ ItemWriter는 write할 item들의 리스트(list)를 수신한다. 만약 스킵
 @Bean
 public Step step1() {
 	return this.stepBuilderFactory.get("step1")
-				.<String, String>chunk(2)
-				.reader(itemReader())
-				.writer(itemWriter())
-				.faultTolerant()
-				.retryLimit(3)
-				.retry(DeadlockLoserDataAccessException.class)
-				.build();
+        .<String, String>chunk(2)
+        .reader(itemReader())
+        .writer(itemWriter())
+        .faultTolerant()
+        .retryLimit(3)
+        .retry(DeadlockLoserDataAccessException.class)
+        .build();
 }
 ```
 위의 코드에서는 DeadlockLoserDataAccessException이 발생하면 retryLimit 값인 3번까지 아이템을 재시도할 수 있다. 재시도의 작동 방법은 https://docs.spring.io/spring-batch/docs/4.3.x/reference/html/retry.html#retry 에 있다.
