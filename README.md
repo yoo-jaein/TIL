@@ -96,9 +96,9 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Why use service and serviceimpl](https://github.com/yoo-jaein/TIL/blob/main/Spring/Why_use_service_and_serviceimpl.md) : 스프링으로 개발할 때 서비스 인터페이스와 서비스 구현 클래스를 두는 이유
 
 ## Test
-- [@MockBean](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40MockBean.md) : 스프링 부트 테스트 어노테이션 @MockBean
-- [JUnit4 annotations](https://github.com/yoo-jaein/TIL/blob/main/Java/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
-- [Mock](https://github.com/yoo-jaein/TIL/blob/main/Java/Mock.md) : 목(Mock) 객체
+- [@MockBean](https://github.com/yoo-jaein/TIL/blob/main/Test/%40MockBean.md) : 스프링 부트 테스트 어노테이션 @MockBean
+- [JUnit4 annotations](https://github.com/yoo-jaein/TIL/blob/main/Test/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
+- [Mock](https://github.com/yoo-jaein/TIL/blob/main/Test/Mock.md) : 목(Mock) 객체
 
 ## Web
 - [Ajax](https://github.com/yoo-jaein/TIL/blob/main/Web/Ajax.md) : Ajax의 등장 배경과 개념
