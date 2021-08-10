@@ -78,6 +78,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
 - [log4j Logging level](https://github.com/yoo-jaein/TIL/blob/main/Java/log4j_Logging_level.md) : log4j의 로그 레벨과 레벨에 따른 작동 방식
 - [Method Overloading](https://github.com/yoo-jaein/TIL/blob/main/Java/Method_Overloading.md) : 자바 메서드 오버로딩의 조건과 개념, 주의 사항
+- [Primitive type vs Reference type](https://github.com/yoo-jaein/TIL/blob/main/Java/Primitive_type_vs_Reference_type.md) : 자바 데이터 타입 중 기본형과 참조형
 - [Reflection](https://github.com/yoo-jaein/TIL/blob/main/Java/Reflection.md) : 자바 Reflection API
 
 ## Linux
