@@ -98,6 +98,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Test
 - [@MockBean](https://github.com/yoo-jaein/TIL/blob/main/Test/%40MockBean.md) : 스프링 부트 테스트 어노테이션 @MockBean
+- [@Sql](https://github.com/yoo-jaein/TIL/blob/main/Test/%40Sql.md) : @Sql
 - [JUnit4 annotations](https://github.com/yoo-jaein/TIL/blob/main/Test/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
 - [Mock](https://github.com/yoo-jaein/TIL/blob/main/Test/Mock.md) : 목(Mock) 객체
 
