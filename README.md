@@ -12,6 +12,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Deploy Automation](https://github.com/yoo-jaein/TIL/blob/main/AWS/Deploy_Automation.md) : AWS의 배포 자동화 도구(CloudFormation)
 - [EC2](https://github.com/yoo-jaein/TIL/blob/main/AWS/EC2.md) : AWS EC2
 - [IAM](https://github.com/yoo-jaein/TIL/blob/main/AWS/IAM.md) : AWS IAM
+- [Instance Scheduler](https://github.com/yoo-jaein/TIL/blob/main/AWS/Instance_Scheduler.md) : AWS Instance Scheduler
 - [Monitoring](https://github.com/yoo-jaein/TIL/blob/main/AWS/Monitoring.md) : AWS의 모니터링 도구(CloudWatch, CloudTrail)
 - [Storage](https://github.com/yoo-jaein/TIL/blob/main/AWS/Storage.md) : AWS의 스토리지(EBS, S3)
 - [VPC](https://github.com/yoo-jaein/TIL/blob/main/AWS/VPC.md) : AWS VPC 
