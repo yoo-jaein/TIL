@@ -75,6 +75,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [findById() vs getOne()](https://github.com/yoo-jaein/TIL/blob/main/JPA/findById()_vs_getOne().md) :  findById()와 getOne()의 차이점, 메서드 이름에서 find-와 get-의 구분
 
 ## Java
+- [Arrays.asList() UnsupportedOperationException](https://github.com/yoo-jaein/TIL/blob/main/Java/Arrays.asList()_UnsupportedOperationException.md) : Arrays.asList() 사용 시 UnsupportedOperationException 발생
 - [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
 - [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
 - [log4j Logging level](https://github.com/yoo-jaein/TIL/blob/main/Java/log4j_Logging_level.md) : log4j의 로그 레벨과 레벨에 따른 작동 방식
