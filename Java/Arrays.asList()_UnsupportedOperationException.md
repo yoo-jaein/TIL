@@ -35,7 +35,10 @@ java.util.**ArrayList**에 구현되어 있다. java.util.ArrayList에는 add, r
 Arrays.asList()는 java.util.**Arrays.ArrayList**의 new ArrayList<>()를 리턴한다. 고정된 사이즈(fixed-size)의 리스트를 리턴하기 때문에 Arrays.asList()로 만든 리스트에 변경이 일어나는 경우 예외가 발생한다.  
 
 ## 결론
-리스트에 원소의 추가, 삭제 등 변경이 일어날 가능성이 있는 경우 반드시 ArrayList로 생성해야 한다.  
+```java
+List<Page> note = new ArrayList<>(Arrays.asList(page1, page2));
+```
+리스트에 원소의 추가, 삭제 등 변경이 일어날 가능성이 있는 경우 반드시 ArrayList로 생성해야 한다.
 
 ## 참고
 https://stackoverflow.com/questions/43020075/java-util-arrays-aslist-when-used-with-removeif-throws-unsupportedoperationexcep  
