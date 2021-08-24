@@ -21,6 +21,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Monolithic vs Microservices](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Monolithic_vs_Microservices.md) : 모놀리식과 마이크로서비스 아키텍처
 
 ## Batch
+- [Batch application management](https://github.com/yoo-jaein/TIL/blob/main/Batch/Batch_application_management.md) : 스프링 배치 애플리케이션을 운영하는 방법
 - [Chunk based Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunk_based_Step.md) : 청크 기반 스텝
 - [Chunksize](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunksize.md) : 청크 크기 정의하기
 - [Cron expression](https://github.com/yoo-jaein/TIL/blob/main/Batch/Cron_expression.md) : 크론 표현식
