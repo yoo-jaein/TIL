@@ -1,7 +1,7 @@
 # JobParameters
 JobInstance는 잡 이름과 파라미터로 식별된다. 또한 동일한 식별 파라미터를 사용하여 동일한 잡을 두 번 이상 실행할 수 없다. 만약 다시 실행한다면 JobInstanceAlreadyCompleteException이 발생한다.
 
-## 잡 파라미터 입력 예시
+## 잡 파라미터 전달
 잡에 파라미터를 전달하는 방법은 사용자가 잡을 어떻게 호출하는지에 따라 달라진다. 스프링 부트의 JobLauncherCommandLineRunner를 기준으로 파라미터 전달 방법을 알아보자.  
 
 ### 예시 1
@@ -14,7 +14,7 @@ name이라는 파라미터 하나를 전달한다.
 ```
 java -jar demo.jar executionDate(date)=2020/12/27
 ```
-파라미터 이름 뒤에 괄호를 쓰고 그 안에 파라미터의 타입을 명시해 스프링 배치에 알려줄 수도 있다. 이 때 해당 타입의 이름은 모두 소문자여야 한다.  
+파라미터 이름 뒤에 괄호를 쓰고 그 안에 소문자로 파라미터의 타입을 명시해 스프링 배치에 타입을 알려줄 수도 있다. 스프링 배치는 파라미터의 타입으로 ```String```, ```Long```, ```Double```, ```java.util.Date```를 지원한다. LocalDate나 LocalDateTime은 지원하지 않으므로 String으로 전달해줘야 한다.  
 
 ### 예시 3 : 인텔리제이 환경
 인텔리제이 Run/Debug Configuration (Edit Configurations) - Build and run - Program arguments에 파라미터 기재
@@ -30,8 +30,7 @@ java -jar demo.jar executionDate(date)=2020/12/27 -name=Michael
 여기서 name 파라미터는 식별에 사용되지 않는다. 만약 -name=John으로 변경하더라도 스프링 배치는 기존의 JobInstance를 기반으로 JobExecution을 생성한다.
 
 ## 잡 파라미터 확인하기
-잡에 전달한 파라미터를 확인하고 싶다면 JobRepository를 살펴보면 된다. JobRepository의 데이터베이스 스키마에는 BATCH_JOB_EXECUTION_PARAMS 테이블이 있다. KEY_NAME, TYPE_CD, VAL 값 등을 보면 된다.  
-
+잡에 전달한 파라미터를 확인하고 싶다면 JobRepository를 살펴보면 된다. JobRepository의 데이터베이스 스키마에는 [BATCH_JOB_EXECUTION_PARAMS](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobRepository.md#batch_job_execution_params) 테이블이 있다. KEY_NAME, TYPE_CD, VAL 값 등을 보면 된다.  
 
 ## 잡 파라미터에 접근하기
 - ChunkContext : execute 메서드는 두 개의 파라미터를 전달받는다. 첫 번째는 StepContribution으로 아직 커밋되지 않은 현재 트랜잭션에 대한 정보(쓰기 수, 읽기 수 등)를 가진다. 두 번째 파라미터는 ChunkContext 인스턴스다. 이 인스턴스는 실행 시점의 잡 상태를 제공한다. 또한 태스크릿 내에서는 처리 중인 청크와 관련된 정보, 스텝, 잡과 관련된 정보가 있다. 여기에 JobParamters가 포함되어 있다.
