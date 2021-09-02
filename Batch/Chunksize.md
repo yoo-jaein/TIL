@@ -1,5 +1,50 @@
 # Chunksize
 
+## 청크 크기 설정하기
+### 방법 1
+```java
+@Slf4j
+@RequiredArgsConstructor
+@Configuration
+public class StudentJobConfiguration {
+
+	private final JobBuilderFactory jobBuilderFactory;
+	private final StepBuilderFactory stepBuilderFactory;
+	private final DataSource dataSource;
+
+	private int chunkSize;
+    
+	@Value("${chunkSize:1000}")
+    public void setChunkSize(int chunkSize) {
+	    this.chunkSize = chunkSize;
+	}
+}
+```
+
+### 방법 2
+```yaml
+spring:
+  batch:
+    job:
+      chunkSize: 1000
+```
+
+```java
+@Slf4j
+@RequiredArgsConstructor
+@Configuration
+public class StudentJobConfiguration {
+
+	private final JobBuilderFactory jobBuilderFactory;
+	private final StepBuilderFactory stepBuilderFactory;
+	private final DataSource dataSource;
+
+	@Value("${spring.batch.job.chunkSize}")
+	private int chunkSize;
+}
+```
+
+### 방법 3
 ```java
 @Slf4j
 @RequiredArgsConstructor
@@ -11,7 +56,6 @@ public class StudentJobConfiguration {
 	private final DataSource dataSource;
 
 	private static final int chunkSize = 10;
-    //...
 ```
 
 일반적으로 커밋 간격(commit interval)을 하드 코딩해 청크 크기를 정의하지만 이렇게 하는 것이 모든 상황에 적절한 것은 아니다. 예를 들어 계좌 하나의 모든 거래 내역을 단일 트랜잭션으로 처리해야 하는 상황이 있을 수 있다. 스프링 배치는 CompletionPolicy 인터페이스의 구현체를 제공함으로써 청크가 완료되는 시점을 프로그래밍 방식으로 정의할 수 있게 해준다.
