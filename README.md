@@ -115,3 +115,4 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Ajax](https://github.com/yoo-jaein/TIL/blob/main/Web/Ajax.md) : Ajax의 등장 배경과 개념
 - [Cookie and Session](https://github.com/yoo-jaein/TIL/blob/main/Web/Cookie_and_Session.md) : 쿠키와 세션의 개념, 동작 방식, 차이
 - [HTTP Status Code](https://github.com/yoo-jaein/TIL/blob/main/Web/HTTP_Status_Code.md) : HTTP 상태 응답 코드 모음
+- [Single Page Application](https://github.com/yoo-jaein/TIL/blob/main/Web/Single_Page_Application.md) : 서버사이드 렌더링과 클라이언트사이드 렌더링의 차이로 보는 싱글 페이지 애플리케이션(Single-Page Application)
