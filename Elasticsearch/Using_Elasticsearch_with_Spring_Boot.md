@@ -60,7 +60,7 @@ public class ElasticsearchClientConfig extends AbstractElasticsearchConfiguratio
 }
 ```
 
-위 코드를 통해 스프링 부트 프로젝트를 ES 인스턴스에 연결했다. ClientConfiguration 객체를 통해 withProxy(), withPathPrefix(), withConnectTimeout(), withSocketTimeout(), withDefaultHeaders(), withBasicAuth(), withHeaders() 등 다양한 옵션을 설정할 수 있다. url, port 등의 정보는 별도의 yml 파일로 분리하여 구성할 수도 있다.
+위 코드를 통해 스프링 부트 프로젝트를 ES 인스턴스에 연결했다. ```ClientConfiguration``` 객체를 통해 withProxy(), withPathPrefix(), withConnectTimeout(), withSocketTimeout(), withDefaultHeaders(), withBasicAuth(), withHeaders() 등 다양한 옵션을 설정할 수 있다. url, port 등의 정보는 별도의 yml 파일로 분리하여 구성할 수도 있다.
 
 ## 5단계 : Elasticsearch 객체 매핑하기
 Spring Data ES의 객체 매핑은 ES에 저장된 JSON 표현과 자바 객체(도메인 엔티티)를 연결하는 작업이다. 기존의 Spring Data ES에서는 Jackson을 이용하여 매핑했지만, 3.2.x부터 Meta Model Object Mapping 방법이 도입되어 사용되고 있다.  
@@ -89,10 +89,10 @@ public class Product {
 }
 ```
 
-``@Document```는 ES index 이름을 명시한다. ```@Id```는 index의 고유 식별자인 id 필드와 매핑시킨다. 512 characters의 제약 조건이 있다. ```@Field```는 필드 유형을 구성하고, ES의 필드 이름과 다르게 설정할 수도 있다. 이러한 어노테이션을 기반으로 ES에서 productindex라는 이름으로 index가 생성된다. 
+```@Document```는 ES index 이름을 명시한다. ```@Id```는 index의 고유 식별자인 id 필드와 매핑시킨다. 512 characters의 제약 조건이 있다. ```@Field```는 필드 유형을 구성하고, ES의 필드 이름과 다르게 설정할 수도 있다. 이러한 어노테이션을 기반으로 ES에서 productindex라는 이름으로 index가 생성된다. 
 
 ## 6단계 : Repository 생성하기
-Spring Data JPA에서 JpaRepository를 사용하던 방식과 유사하게 Spring Data ES에서는 ElasticsearchRepository를 이용한다. 아래의 ProductRepository는 ElasticsearchRepository를 통해 save(), saveAll(), find(), findAll() 등의 메서드를 이용할 수 있다.
+Spring Data JPA에서 JpaRepository를 사용하던 방식과 유사하게 Spring Data ES에서는 ```ElasticsearchRepository```를 이용한다. 아래의 ProductRepository는 ```ElasticsearchRepository```를 통해 save(), saveAll(), find(), findAll() 등의 메서드를 이용할 수 있다.
 
 ```java
 public interface ProductRepository
@@ -174,7 +174,7 @@ public class ProductSearchService {
 productindex index에 여러 Product를 한 번에 추가하기 위해 ElasticsearchOperations의 bulkIndex() 메서드를 사용했다. 하나의 Product를 추가하려면 index() 메서드를 이용하면 된다.
 
 ### Searching
-index에서 document를 검색하기 위한 메서드들이 있다. 이런 메서드는 쿼리를 나타내는 ```Query``` 파라미터를 사용한다. ```Query```는 인터페이스이고 Spring Data ES는 CriteriaQuery, StringQuery, NativeSearchQuery의 [세 가지 구현](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#elasticsearch.operations.queries)을 제공한다.
+index에서 document를 검색하기 위한 메서드들이 있다. 이런 메서드는 쿼리를 나타내는 ```Query``` 파라미터를 사용한다. ```Query```는 인터페이스이고 Spring Data ES는 ```CriteriaQuery```, ```StringQuery```, ```NativeSearchQuery```의 [세 가지 구현](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#elasticsearch.operations.queries)을 제공한다.
 
 #### CriteriaQuery
 ```java
