@@ -1,7 +1,7 @@
 # POJO framework
 
 ## POJO
-POJO(Plain Old Java Object)는 마틴 파울러가 만들어냈으며 자바의 단순한 오브젝트를 가리키는 용어이다. 특별한 의미는 없고, 2000년에 마틴 파울러가 컨퍼런스 발표를 준비하던 중 단순한 오브젝트에 대해 'EJB'처럼 그럴싸하게 보이도록 붙인 명칭이다. 자바를 사용해야 하는 것 외에는 제한사항이 없다.
+POJO(Plain Old Java Object)는 마틴 파울러가 만들어냈으며 자바의 단순한 오브젝트를 가리키는 용어이다. 특별한 의미는 없고, 2000년에 마틴 파울러가 컨퍼런스 발표를 준비하던 중 단순한 오브젝트에 대해 'EJB'처럼 그럴싸하게 보이도록 붙인 명칭이다. 자바를 사용하고 클래스 경로(class path)를 필요로 하지 않는 일반적인 객체이다.
 
 ```java
 public class Book {
@@ -53,6 +53,8 @@ POJO는 다음을 수행해서는 안 된다.
 - 어노테이션 적용
   - @javax.persistence.Entity public class Baz {...} 은 POJO 클래스가 아니다.
 
+그러나 실제로 소프트웨어를 개발할 때 기술적인 어려움과 기타 이유로 어노테이션을 사용해야 한다. 따라서 3번은 '어노테이션이 추가되기 전에 POJO였고 어노테이션이 제거되면 언제든지 POJO 상태로 돌아가서 POJO로 간주될 수 있다'는 것을 의미한다.  
+
 ## POJO 프로그래밍
 POJO에 애플리케이션 핵심 로직과 기능을 담아서 설계하고 개발하는 방법을 POJO 프로그래밍이라고 한다. 그렇다면 POJO 프로그래밍의 장점은 무엇일까?
 
@@ -72,3 +74,4 @@ POJO에 애플리케이션 핵심 로직과 기능을 담아서 설계하고 개
 토비의 스프링 3.1 Vol.1 8장  
 https://www.javatpoint.com/pojo-in-java  
 https://www.geeksforgeeks.org/pojo-vs-java-beans/  
+https://en.wikipedia.org/wiki/Plain_old_Java_object  
