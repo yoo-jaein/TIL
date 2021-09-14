@@ -46,6 +46,10 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [MySQL auto_increment and Rollback](https://github.com/yoo-jaein/TIL/blob/main/Database/MySQL_auto_increment_and_Rollback.md) : MySQL에서 트랜잭션 롤백이 일어날 때 auto_increment 컬럼의 값은 어떻게 될까?
 - [Show create table](https://github.com/yoo-jaein/TIL/blob/main/Database/Show_create_table.md) : MySQL에서 테이블의 생성 쿼리 알아내기
 
+## Elasticsearch
+- [Elasticsearch](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/Elasticsearch.md) : 일래스틱서치
+- [Using Elasticsearch with Spring Boot](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/Using_Elasticsearch_with_Spring_Boot.md) : 스프링 부트 프로젝트에서 일래스틱서치 쓰기
+
 ## Infra
 - [Cloud](https://github.com/yoo-jaein/TIL/blob/main/Infra/Cloud.md) : 클라우드 컴퓨팅의 분류와 특징
 - [DevOps](https://github.com/yoo-jaein/TIL/blob/main/Infra/DevOps.md) : 데브옵스의 등장 배경, 데브옵스와 도커의 관계
@@ -104,6 +108,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Spring](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring.md) : 스프링 프레임워크
 - [Spring boot test class annotation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_boot_test_class_annotation.md) : 스프링 부트의 테스트 클래스 어노테이션 종류(@SpringBootTest, @WebMvcTest, @DataJpaTest)
 - [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Container.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
+- [Using Elasticsearch with Spring Boot](https://github.com/yoo-jaein/TIL/blob/main/Spring/Using_Elasticsearch_with_Spring_Boot.md) : 스프링 부트에 Elasticsearch 연결하기
 - [Why use service and serviceimpl](https://github.com/yoo-jaein/TIL/blob/main/Spring/Why_use_service_and_serviceimpl.md) : 스프링으로 개발할 때 서비스 인터페이스와 서비스 구현 클래스를 두는 이유
 
 ## Test
