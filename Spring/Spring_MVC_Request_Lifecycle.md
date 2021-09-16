@@ -48,7 +48,7 @@ Controller는 적절한 메서드에서 비즈니스 로직을 실행하고 처�
 > ```Model```은 컨트롤러에 의해 비즈니스 로직이 수행된 후 사용자에게 반환되어 브라우저에 표시될 정보다.
 
 ## Interceptor
-> ```Interceptor```는 Controller로 가기 전에 요청을 가로챌 수 있다.
+> ```Interceptor```는 Controller로 가기 전과 Controller에서 나온 후에 요청을 가로챌 수 있다.
 
 ## View
 > ```View```는 Model 정보를 렌더링하여 HTML처럼 사용자에게 익숙한 형식으로 보여준다.
@@ -59,5 +59,5 @@ Controller는 적절한 메서드에서 비즈니스 로직을 실행하고 처�
 ## 참고
 https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html  
 https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-config-interceptors  
-스프링 인 액션 3판  
+스프링 인 액션 3판 7장  
 https://en.wikipedia.org/wiki/Spring_Framework  
