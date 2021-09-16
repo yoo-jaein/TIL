@@ -108,7 +108,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Spring](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring.md) : 스프링 프레임워크
 - [Spring boot test class annotation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_boot_test_class_annotation.md) : 스프링 부트의 테스트 클래스 어노테이션 종류(@SpringBootTest, @WebMvcTest, @DataJpaTest)
 - [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Container.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
-- [Using Elasticsearch with Spring Boot](https://github.com/yoo-jaein/TIL/blob/main/Spring/Using_Elasticsearch_with_Spring_Boot.md) : 스프링 부트에 Elasticsearch 연결하기
+- [Spring MVC Request Lifecycle](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_MVC_Request_Lifecycle.md) : 스프링 MVC 요청 라이프사이클(DispatcherServlet, HandlerMapping, Controller, HandlerAdapter, Interceptor, View, ViewResolver)
 - [Why use service and serviceimpl](https://github.com/yoo-jaein/TIL/blob/main/Spring/Why_use_service_and_serviceimpl.md) : 스프링으로 개발할 때 서비스 인터페이스와 서비스 구현 클래스를 두는 이유
 
 ## Test
