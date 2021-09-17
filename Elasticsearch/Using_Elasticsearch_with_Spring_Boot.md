@@ -1,5 +1,5 @@
 # Using Elasticsearch with Spring Boot
-스프링 부트에 Elasticsearch 연결하기
+스프링 부트 프로젝트에서 일래스틱서치 쓰기
 
 ## Elasticsearch란
 [Elasticsearch.md](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/Elasticsearch.md) 참고  
