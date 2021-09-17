@@ -6,41 +6,59 @@ javax.servlet.http.HttpServletRequest
 
 ## 사용법
 ### URL 정보
-- getRequestURL()
-- getRequestURI()
-- getContextPath()
-- getServletPath()
-- getQueryString()
-- getServerPort()
-- getServerName()
+```text
+https://myhost.com:8080/people/list.do?lastname=Fox&age=30
+```
+- StringBuffer getRequestURL() : Query를 제외한 경로를 반환한다. (http://myhost:8080/people)
+- String getRequestURI() : ContextPath와 ServletPath를 합친 경로를 반환한다. (/people/list.do)
+- String getContextPath() : Context 경로. 웹 애플리케이션의 프로젝트 명을 반환한다. 
+- String getServletPath() : Servlet 경로. ContextPath를 제외한 경로를 반환한다. (/people/list.do)
+- String getQueryString() : Query 정보를 반환한다. (lastname=Fox&age=30)
+- String getServerPort() : 포트 번호를 반환한다. (8080)
+- String getServerName() : 도메인 주소를 반환한다. (myhost.com)
 
 ### 파라미터 정보
-- getParameterNames()
-- getParameter()
+- Enumeration<String> getParameterNames()
+- String[] getParameterValues(String name)
+- String getParameter()
+
+### 속성 정보
+- Enumeration<String> getAttributeNames()
+- Object getAttribute(String name)
+
+### 헤더 정보
+- Enumeration<String> getHeaders(String name)
+- String getHeader(String name) : 지정된 요청 헤더의 값을 문자열로 반환한다. 이름이 같은 헤더가 여러 개인 경우 요청의 첫 번째 헤더를 반환한다. 
+
+### 바디 정보
+- ServletInputStream getInputStream()
+
+### 쿠키 정보
+- Cookie[] getCookies() : 클라이언트가 요청과 함께 보낸 모든 쿠키 객체를 담은 배열을 반환한다. 
 
 ### 세션 정보
-- getRequestedSessionId()
-- getSession()
-- isRequestedSessionIdFromCookie()
-- isRequestedSessionIdFromURL()
-- isRequestedSessionIdValid()
+- HttpSession getSession()
+- boolean isRequestedSessionIdFromCookie()
+- boolean isRequestedSessionIdFromURL()
+- boolean isRequestedSessionIdValid()
 
 ### 클라이언트 정보
-- getRemoteAddr()
-- getRemoteHost()
-- getRemotePort()
+- String getRemoteAddr()
+- String getRemoteHost()
+- int getRemotePort()
 
 ### 서버 정보
-- getLocalAddr()
-- getLocalName()
-- getLocalPort()
+- String getLocalAddr()
+- String getLocalName()
+- int getLocalPort()
 
 ### 기타 정보
-- isSecure()
-- getLocale()
-- getScheme()
-- getProtocol()
-- getMethod()
+- boolean isSecure()
+- String getAuthType() : 서블릿을 보호하기 위해 사용되는 인증 스키마의 이름을 반환한다.
+- Locale getLocale()
+- String getScheme() : http, https, ftp 등 프로토콜의 이름을 반환한다.
+- String getProtocol() : 요청이 사용하는 프로토콜과 버전을 반환한다.
+- String getMethod() : GET, POST 등 사용한 HTTP 메서드의 이름을 반환한다.
 
 ## 활용 : HandlerInterceptor
 ```java
@@ -50,7 +68,8 @@ public interface HandlerInterceptor {
 		return true; 
 	}
 
-	default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
+	default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, 
+		@Nullable ModelAndView modelAndView) throws Exception {
 	}
 
 	default void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
@@ -62,3 +81,5 @@ public interface HandlerInterceptor {
 
 ## 참고
 https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html  
+https://stackoverflow.com/questions/17241532/get-root-domain-from-request  
+https://d8040.tistory.com/188  
