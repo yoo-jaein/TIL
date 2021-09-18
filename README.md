@@ -105,6 +105,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Error and Exception](https://github.com/yoo-jaein/TIL/blob/main/Spring/Error_and_Exception.md) : 자바 Error와 Exception의 개념, 예외 처리 방법
 - [HttpServletRequest](https://github.com/yoo-jaein/TIL/blob/main/Spring/HttpServletRequest.md) : HttpServletRequest의 사용법
 - [Interceptor vs Filter vs AOP](https://github.com/yoo-jaein/TIL/blob/main/Spring/Interceptor_vs_Filter_vs_AOP.md) : 인터셉터 vs 필터 vs AOP
+- [Logback](https://github.com/yoo-jaein/TIL/blob/main/Spring/Logback.md) : 스프링 부트 환경에서 Logback 사용법
 - [POJO framework](https://github.com/yoo-jaein/TIL/blob/main/Spring/POJO_framework.md) : POJO(Plain Old Java Object) 프레임워크
 - [Refactoring DAO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Refactoring_DAO.md) : 토비의 스프링 3.1 Vol.1 1장(DAO 리팩터링하기)
 - [Spring](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring.md) : 스프링 프레임워크

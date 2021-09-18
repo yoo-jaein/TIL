@@ -9,7 +9,7 @@ javax.servlet.http.HttpServletRequest
 ```text
 https://myhost.com:8080/people/list.do?lastname=Fox&age=30
 ```
-- StringBuffer getRequestURL() : Query를 제외한 경로를 반환한다. (http://myhost:8080/people)
+- StringBuffer getRequestURL() : Query를 제외한 경로를 반환한다. (https://myhost:8080/people/list.do)
 - String getRequestURI() : ContextPath와 ServletPath를 합친 경로를 반환한다. (/people/list.do)
 - String getContextPath() : Context 경로. 웹 애플리케이션의 프로젝트 명을 반환한다. 
 - String getServletPath() : Servlet 경로. ContextPath를 제외한 경로를 반환한다. (/people/list.do)
