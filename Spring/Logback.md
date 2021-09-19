@@ -11,8 +11,8 @@ Logback은 Java 애플리케이션용 로깅 프레임워크다. 로그를 콘�
 ### pom.xml
 ```xml
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
 
@@ -36,8 +36,9 @@ Logback에 대한 커뮤니티 지원 확장 프로젝트인 [logback-contrib](h
 ```
 
 ## 간단한 로깅 설정
-application.yml, application.properties에 간단한 설정을 통해 로그 수준과 로그 파일의 위치, 이름 등을 변경할 수 있다. https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#application-properties.core에서 설정 가능한 목록을 확인할 수 있다.
+application.yml, application.properties에 간단한 설정을 통해 로그 수준과 로그 파일의 위치, 이름 등을 변경할 수 있다. https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#application-properties.core 에서 설정 가능한 목록을 확인할 수 있다.
 
+### application.yml
 ```yaml
 logging:
   level:
@@ -47,6 +48,7 @@ logging:
     name: "myapp.log"
 ```
 
+### application.properties
 ```properties
 logging.level.org.springframework.web=debug
 logging.level.org.hibernate=error
@@ -54,7 +56,7 @@ logging.level.file.name=myapp.log
 ```
 
 ## logback-spring.xml
-좀 더 세부적인 설정을 구성하려면 별도의 파일을 만들어야 한다. 클래스패스의 루트(src/main/resources/)에 ```logback.xml``` 파일을 추가할 수 있다. 스프링 부트를 사용하면 ```logback-spring.xml```을 사용할 수도 있다.
+좀 더 세부적인 설정을 구성하려면 별도의 파일을 만들어야 한다. 클래스패스의 루트(src/main/resources/)에 ```logback.xml``` 파일을 추가할 수 있다. 스프링 부트를 사용하면 ```logback-spring.xml```을 사용할 수도 있다. [logback-spring.xml](https://github.com/yoo-jaein/TIL/blob/main/Spring/logback-spring.xml.md) 참고
 
 ## 참고
 https://stackify.com/logging-logback/  
