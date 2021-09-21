@@ -11,8 +11,8 @@ https://myhost.com:8080/people/list.do?lastname=Fox&age=30
 ```
 - StringBuffer getRequestURL() : Query를 제외한 경로를 반환한다. (https://myhost:8080/people/list.do)
 - String getRequestURI() : ContextPath와 ServletPath를 합친 경로를 반환한다. (/people/list.do)
-- String getContextPath() : Context 경로. 웹 애플리케이션의 프로젝트 명을 반환한다. 
-- String getServletPath() : Servlet 경로. ContextPath를 제외한 경로를 반환한다. (/people/list.do)
+- String getContextPath() : 서블릿 Context 경로. 서버에서 실행하는 애플리케이션을 식별한다. 웹 애플리케이션의 프로젝트 명을 반환한다. 
+- String getServletPath() : Servlet 경로. ContextPath를 제외한 경로를 반환한다. 서블릿 Context 애플리케이션 내에서 리소스를 식별한다. (/people/list.do)
 - String getQueryString() : Query 정보를 반환한다. (lastname=Fox&age=30)
 - String getServerPort() : 포트 번호를 반환한다. (8080)
 - String getServerName() : 도메인 주소를 반환한다. (myhost.com)
