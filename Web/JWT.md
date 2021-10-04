@@ -44,20 +44,12 @@ JWT의 첫 번째 파트인 Header는 일반적으로 ```토큰 유형```(JWT), 
 ### Payload
 JWT의 두 번째 파트는 ```Claim```을 포함하는 ```Payload```다. ```Claim```은 사용자와 데이터에 대한 요청(설명)을 말한다. ```Claim```에는 등록된 클레임(```Registered claims```), 공개 클레임(```Public claims```), 비공개 클레임(```Private claims```)의 세 가지 유형이 있다.
 
-- ```Registered claims```
-- ```Public claims```
-- ```Private claims```
-
-Registered claims: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: iss (issuer), exp (expiration time), sub (subject), aud (audience), and others.
+- ```Registered claims``` : 미리 정의된 claim이다. 필수는 아니지만 사용 권장된다. iss(issue, 발급자), exp(expiration time, 만료 시간), sub(subject, 제목), aud(audience, 청중) 등이 있다.
+- ```Public claims``` : JWT 사용자끼리 자유롭게 정의할 수 있다. 충돌을 방지하려면 IANA JWT 레지스트리의 claim이나, 충돌 방지 네임스페이스를 포함한 URI로 정의해야 한다.
+- ```Private claims``` : ```Registered claims```나 ```Public claims```가 아닌 당사자 간에 정보를 공유하기 위해 생성된 커스텀 claim이다.
 
 > 참고!  
 > JWT는 간결해야 하기 때문에 **```Claim``` 이름은 3개의 characters 길이를 가져야 한다.**
-
-Public claims: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.
-
-Private claims: These are the custom claims created to share information between parties that agree on using them and are neither registered or public claims.
-
-An example payload could be:
 
 ```json
 {
