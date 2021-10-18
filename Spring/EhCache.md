@@ -55,18 +55,54 @@ JCache API는 벤더 중립적인 캐싱 표준을 위해 설계되었다. 따�
 
 Ehcache jar는 JCache API 호출을 해당 Ehcache API로 변환해준다. 따라서, 개발자는 Ehcache API를 직접 사용할 필요 없이 표준 JCache API를 사용해서 개발하면 된다.
 
-## Ehcache 의존성 추가하기
+## 1. Ehcache 의존성 추가하기
 
 spring-boot-starter-cache
 기본 캐싱 종속성을 추가한다.
 
 JCache, Ehcache 2.x, Caffeine을 사용하려면 spring-context-support를 추가한다.
 
-### pom.xml
-
 ### build.gradle
+```groovy
+implementation 'org.springframework.boot:spring-boot-starter-cache'
+implementation 'org.ehcache:ehcache'
+implementation 'javax.cache:cache-api'
+```
 
-## 간단한 캐싱 설정
+## 2. @EnableCache
+```java
+@EnableCaching
+@SpringBootApplication
+public class DemoApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(DemoApplication.class, args);
+  }
+
+}
+```
+
+@EnableCaching은 Spring의 캐시 관리를 활성화하는 어노테이션이다. 아래처럼 별도의 설정 파일을 만들어 적용시킬 수도 있다.
+
+```java
+@Configuration
+@EnableCaching
+public class CacheConfig {
+  ...
+}
+```
+
+## 3. application.yml
+```yaml
+spring:
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+```
+
+Ehcache는 ehcache.xml 파일 혹은 자바 코드로 환경설정을 할 수 있다. xml 방식을 사용하는 경우, Spring이 Ehcache 설정 파일인 ehcache.xml을 찾을 수 있도록 속성을 추가한다. 
+
+## 4. 캐시 적용
 
 
 ## 참고
@@ -74,3 +110,4 @@ https://medium.com/finda-tech/spring-%EB%A1%9C%EC%BB%AC-%EC%BA%90%EC%8B%9C-%EB%9
 https://www.ehcache.org/  
 https://www.ehcache.org/documentation/3.9/107.html  
 https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.caching  
+https://springframework.guru/using-ehcache-3-in-spring-boot/  
