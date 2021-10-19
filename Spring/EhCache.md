@@ -92,7 +92,54 @@ public class CacheConfig {
 }
 ```
 
-## 3. application.yml
+## 3.1 Ehcache.xml
+```xml
+<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xsi:schemaLocation="
+            http://www.ehcache.org/v3 
+            http://www.ehcache.org/schema/ehcache-core-3.7.xsd">
+  
+    <persistence directory="demo/cache"/>
+  
+    <cache-template name="defaultTemplate">
+        <expiry>
+            <ttl unit="seconds">600</ttl>
+        </expiry>
+
+        <resources>
+            <heap>100</heap>
+            <offheap unit="MB">10</offheap>
+            <disk persistent="true" unit="MB">20</disk>
+        </resources>
+    </cache-template>
+
+    <cache alias="userCache" uses-template="defaultTemplate">
+      <key-type>java.lang.Long</key-type>
+      <value-type>com.example.User</value-type>
+      <expiry>
+        <ttl unit="seconds">1000</ttl>
+      </expiry>
+    </cache>
+
+</config>
+```
+
+ehcache.xml에서 '캐시 템플릿'과 '캐시'를 설정할 수 있다. 캐시 템플릿(cache template)은 여러 캐시의 구성이 대체로 동일한 경우에 사용하면 좋다. 캐시 템플릿에는 캐시에 공통적으로 적용할 설정이 포함되어 개별 캐시의 설정보다 먼저 적용된다. 
+
+- ```<persistence directory="">``` : 파일 기반 캐시를 저장할 디렉터리를 정의한다. 이 설정은 위치를 정의할 뿐이고 실제로 디스크 저장소에 저장하는 여부는 나중에 구성된다.
+- ```<cache-template>``` : 캐시 템플릿을 정의한다.
+
+- ```<cache alias="">``` : 캐시를 정의한다. 캐시의 이름은 alias로 지정한다.
+  - ```<key-type>``` : 캐시 항목을 구분하는 key의 타입을 정의한다.
+  - ```<value-type>``` : 캐시 항목 value의 타입을 정의한다.
+  - ```<expiry>``` : TTL(Time to Live) 또는 TTI(Time to Idle)를 정의한다. TTL은 액세스와 관계없이 캐시 항목(entry)이 캐시에 남아 있을 수 있는 기간을 지정한다. TTL이 지나면 캐시에서 값이 제거된다. TTI는 액세스가 없을 때 캐시 항목이 캐시에 남아 있을 수 있는 기간을 지정한다. TTL, TTI의 기본 단위는 seconds다.
+  - ```<resource>``` : 캐시의 메모리, 계층, 용량 등 자원을 정의한다. 아래의 heap, offheap, disk를 모두 설정하는 경우 3-tier 캐시가 된다. 기본 캐시 전략은 LRU(Least Recently Used)다. 캐시가 가득 찼을 때 다음 하위 계층으로(예를 들어 온힙 저장소에서 오프힙 저장소로) 캐시 항목을 보낸다. 
+    - ```<heap>``` : 온힙 저장소를 정의한다. 저장 가능한 최대 항목 수를 지정한다.
+    - ```<offheap>``` : 오프힙 저장소를 정의한다. 
+    - ```<disk>``` : 디스크 캐시를 정의한다. 주의해야 할 것은 항상 힙 캐시보다 디스크 캐시의 메모리 용량이 커야 한다는 것이다. 그렇지 않으면 애플리케이션을 시작하는 중 XML 파일을 파싱할 때 예외가 발생한다.
+    
+## 3.2 application.yml
 ```yaml
 spring:
   cache:
@@ -100,14 +147,21 @@ spring:
       config: classpath:ehcache.xml
 ```
 
-Ehcache는 ehcache.xml 파일 혹은 자바 코드로 환경설정을 할 수 있다. xml 방식을 사용하는 경우, Spring이 Ehcache 설정 파일인 ehcache.xml을 찾을 수 있도록 속성을 추가한다. 
+Ehcache는 ehcache.xml 파일 혹은 자바 코드로 환경설정을 할 수 있다. 위처럼 xml 방식을 사용하는 경우, Spring이 Ehcache 설정 파일인 ehcache.xml을 찾을 수 있도록 속성을 추가한다.
 
 ## 4. 캐시 적용
+```java
+@Service
+public class UserService {
+  @Cacheable(cacheNames = "userCache")
+  public UserDto getUser(Long userId) {...} 
+}
+```
 
 
 ## 참고
 https://medium.com/finda-tech/spring-%EB%A1%9C%EC%BB%AC-%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-ehcache-4b5cba8697e0  
 https://www.ehcache.org/  
-https://www.ehcache.org/documentation/3.9/107.html  
+https://www.ehcache.org/documentation/3.9/  
 https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.caching  
 https://springframework.guru/using-ehcache-3-in-spring-boot/  
