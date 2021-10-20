@@ -75,9 +75,9 @@ implementation 'javax.cache:cache-api'
 @SpringBootApplication
 public class DemoApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(DemoApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
 }
 ```
@@ -88,7 +88,7 @@ public class DemoApplication {
 @Configuration
 @EnableCaching
 public class CacheConfig {
-  ...
+    ...
 }
 ```
 
@@ -115,11 +115,11 @@ public class CacheConfig {
     </cache-template>
 
     <cache alias="userCache" uses-template="defaultTemplate">
-      <key-type>java.lang.Long</key-type>
-      <value-type>com.example.User</value-type>
-      <expiry>
-        <ttl unit="seconds">1000</ttl>
-      </expiry>
+        <key-type>java.lang.Long</key-type>
+        <value-type>com.example.User</value-type>
+        <expiry>
+            <ttl unit="seconds">1000</ttl>
+        </expiry>
     </cache>
 
 </config>
@@ -150,14 +150,61 @@ spring:
 Ehcache는 ehcache.xml 파일 혹은 자바 코드로 환경설정을 할 수 있다. 위처럼 xml 방식을 사용하는 경우, Spring이 Ehcache 설정 파일인 ehcache.xml을 찾을 수 있도록 속성을 추가한다.
 
 ## 4. 캐시 적용
+### @Cacheable
 ```java
 @Service
 public class UserService {
-  @Cacheable(cacheNames = "userCache")
-  public UserDto getUser(Long userId) {...} 
+    @Cacheable(cacheNames = "userCache")
+    public UserDto getUser(Long userId) {...} 
 }
 ```
 
+## 5. 캐시 리스너
+캐시 리스너 CacheEventListener를 이용해서 캐시의 이벤트에 따라 로그를 출력할 수 있다.
+
+### ehcache.xml
+```xml
+<cache alias="userCache" uses-template="defaultTemplate">
+    <key-type>java.lang.Long</key-type>
+    <value-type>com.example.User</value-type>
+    <expiry>
+        <ttl unit="seconds">1000</ttl>
+    </expiry>
+    <listeners>
+        <listener>
+            <class>com.example.CacheLogger</class>
+            <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+            <event-ordering-mode>UNORDERED</event-ordering-mode>
+            <events-to-fire-on>CREATED</events-to-fire-on>
+            <events-to-fire-on>UPDATED</events-to-fire-on>
+            <events-to-fire-on>EXPIRED</events-to-fire-on>
+            <events-to-fire-on>REMOVED</events-to-fire-on>
+            <events-to-fire-on>EVICTED</events-to-fire-on>
+        </listener>
+    </listeners>
+</cache>
+```
+
+### CacheEventListener
+```java
+package com.example;
+
+import org.ehcache.event.CacheEvent;
+import org.ehcache.event.CacheEventListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class CacheLogger implements CacheEventListener<Object, Object> {
+ 
+    private static final Logger log = LoggerFactory.getLogger(CustomCacheEventLogger.class);
+ 
+    @Override
+    public void onEvent(CacheEvent cacheEvent) {
+        log.info("Cache event={}, Key={}, Old value={}, New value={}", 
+                cacheEvent.getType(), cacheEvent.getKey(), cacheEvent.getOldValue(), cacheEvent.getNewValue());
+    }
+}
+```
 
 ## 참고
 https://medium.com/finda-tech/spring-%EB%A1%9C%EC%BB%AC-%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-ehcache-4b5cba8697e0  

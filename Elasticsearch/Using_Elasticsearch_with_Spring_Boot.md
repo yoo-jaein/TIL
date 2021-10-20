@@ -163,7 +163,6 @@ public class ProductSearchService {
 				.withId(product.getId().toString())
 				.withObject(product).build())
 			.collect(Collectors.toList());
-		;
 		
 		return elasticsearchOperations
 			.bulkIndex(queryList, IndexCoordinates.of(PRODUCT_INDEX));
