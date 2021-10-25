@@ -115,6 +115,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Logback](https://github.com/yoo-jaein/TIL/blob/main/Spring/Logback.md) : 스프링 부트 환경에서 Logback 사용법
 - [POJO framework](https://github.com/yoo-jaein/TIL/blob/main/Spring/POJO_framework.md) : POJO(Plain Old Java Object) 프레임워크
 - [Refactoring DAO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Refactoring_DAO.md) : 토비의 스프링 3.1 Vol.1 1장(DAO 리팩터링하기)
+- [RestTemplate vs WebClient](https://github.com/yoo-jaein/TIL/blob/main/Spring/RestTemplate_vs_WebClient.md) : RestTemplate와 WebClient 비교하기
 - [Spring](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring.md) : 스프링 프레임워크
 - [Spring boot test class annotation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_boot_test_class_annotation.md) : 스프링 부트의 테스트 클래스 어노테이션 종류(@SpringBootTest, @WebMvcTest, @DataJpaTest)
 - [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Container.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
