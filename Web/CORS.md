@@ -2,14 +2,22 @@
 Cross-Origin Resource Sharing, ```CORS```란 다른 도메인의 자원 호출을 승인하거나 차단하는 것을 결정하는 것이다.
 
 ## 등장 배경
-HTTP Request는 기본적으로 다른 도메인의 **```<img>``` 이미지**, **```<link rel="stylesheet" href="...">``` CSS**, **JavaScript 라이브러리**, **```<video>``` 비디오**, **```<audio>``` 오디오** 등을 가져올 수 있다. 이렇게 **다른 도메인의 자원을 가져오는 요청을 ```Cross-Site HTTP Request```라 한다.**  
+HTTP Request는 기본적으로 다른 도메인의 
 
-그러나 **```<script></script>``` 내의 JavaScript 스크립트에서 생성된 HTTP Request는** **```SOP(Same-Origin Policy)```**를 적용받기 때문에 **Cross-Site HTTP Request에 해당하지 않는다.** ```SOP```는 다른 도메인의 자원과 상호작용하는 것을 제한하는 보안 정책이다.  
+- \<img> 이미지
+- \<link rel="stylesheet" href="..."> CSS
+- JavaScript 라이브러리
+- \<video> 비디오
+- \<audio> 오디오 
 
-**```CORS```는 이렇게 스크립트에서 생성되는 HTTP Request에 대해 ```SOP```를 우회하여 다른 도메인의 자원과 상호작용할 수 있도록 만드는 정책이다.**  
+등을 가져올 수 있다. 이렇게 **다른 도메인의 자원을 가져오는 요청을 ```Cross-Site HTTP Request```라 한다.**    
+
+그러나 **```<script></script>``` 내의 JavaScript 스크립트에서 생성된 HTTP Request는** ```SOP(Same-Origin Policy)```를 적용받기 때문에 **Cross-Site HTTP Request에 해당하지 않는다.** ```SOP```는 다른 도메인의 자원과 상호작용하는 것을 제한하는 보안 정책이다.  
+
+**```CORS```는 이렇게 스크립트에서 생성되는 HTTP Request에 대해 ```SOP```를 우회하여 다른 도메인의 자원과 상호작용할 수 있도록 만드는 설정이다.**  
 
 ## CORS
-CORS Request의 종류에는 여러 조합이 있다.
+CORS와 관련된 Request의 종류에는 여러 조합이 있다.
 
 ### Simple Request
 ```단순 요청(Simple Request)```은 CORS ```Preflight``` 없이 즉시 요청된다. ```Simple Request```의 조건은 다음과 같다.
@@ -45,30 +53,38 @@ Preflight Request는 일반적인 상황에서는 브라우저에서 자동으�
 ### Wildcards
 헤더 값에 와일드카드("*")를 설정할 수 있다. 그러나 **Credentials 설정을 true로 지정한 경우(쿠키나 인증 정보를 사용하는 경우), 와일드카드를 사용해서는 안 되고 명시적으로 출처를 지정해야만 한다.** Credential 설정을 따로 하지 않았다면(default: false) 와일드카드를 사용해도 된다.
 
-- **```Access-Control-Allow-Credentials``` : ```true```**
-- ```Access-Control-Allow-Origin``` : ```"*"``` (X)
+```
+Access-Control-Allow-Credentials : true
+Access-Control-Allow-Origin : "*" (X)
+```
+
+```
+Access-Control-Allow-Credentials : true
+Access-Control-Allow-Origin : "http://localhost:8080" (O)
+```
+
+```
+Access-Control-Allow-Credentials : true
+Access-Control-Allow-Headers : "*" (X)
+```
+
+```
+Access-Control-Allow-Credentials : true
+Access-Control-Allow-Headers : X-PINGOTHER, Content-Type (O)
+```
+
+```
+Access-Control-Allow-Credentials : true
+Access-Control-Allow-Methods : "*" (X)
+```
+
+```
+Access-Control-Allow-Credentials : true
+Access-Control-Allow-Methods : POST, GET (O)
+```
 
 
-- **```Access-Control-Allow-Credentials``` : ```true```**
-- **```Access-Control-Allow-Origin``` : ```"http://localhost:8080"``` (O)**
-
-
-- **```Access-Control-Allow-Credentials``` : ```true```**
-- ```Access-Control-Allow-Headers``` : ```"*"``` (X)
-
-
-- **```Access-Control-Allow-Credentials``` : ```true```**
-- **```Access-Control-Allow-Headers``` : ```X-PINGOTHER, Content-Type``` (O)**
-
-
-- **```Access-Control-Allow-Credentials``` : ```true```**
-- ```Access-Control-Allow-Methods``` : ```"*"``` (X)
-
-
-- **```Access-Control-Allow-Credentials``` : ```true```**
-- **```Access-Control-Allow-Methods``` : ```POST, GET``` (O)**
-
-## CORS 설
+## CORS 설정
 ```CORS```를 사용해 Cross-Origin access를 허용할 수 있다. **기본적으로 Node.js, Spring Boot 등의 서버단에서 ```CORS``` 설정을 해줘야 한다.**  
 
 ## 참고
