@@ -83,6 +83,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [findById() vs getOne()](https://github.com/yoo-jaein/TIL/blob/main/JPA/findById()_vs_getOne().md) :  findById()와 getOne()의 차이점, 메서드 이름에서 find-와 get-의 구분
 
 ## Java
+- [Apache tika](https://github.com/yoo-jaein/TIL/blob/main/Java/Apache_tika.md) : Apache tika 라이브러리
 - [Arrays.asList() UnsupportedOperationException](https://github.com/yoo-jaein/TIL/blob/main/Java/Arrays.asList()_UnsupportedOperationException.md) : Arrays.asList() 사용 시 UnsupportedOperationException 발생
 - [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
 - [Custom annotation](https://github.com/yoo-jaein/TIL/blob/main/Java/Custom_annotation.md) : 커스텀 어노테이션
