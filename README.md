@@ -48,6 +48,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Elasticsearch
 - [Elasticsearch](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/Elasticsearch.md) : 일래스틱서치
+- [QueryBuilder](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/QueryBuilder.md) : QueryBuilder로 쿼리 구성하기
 - [Using Elasticsearch with Spring Boot](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/Using_Elasticsearch_with_Spring_Boot.md) : 스프링 부트 프로젝트에서 일래스틱서치 쓰기
 
 ## Infra
