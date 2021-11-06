@@ -6,9 +6,33 @@ A filter to filter only documents where a field exists in them.
 ## IdsQueryBuilder
 Constructs a query that will match only specific ids within all types.
 
+```java
+String productId = "1122334455";
+IdsQueryBuilder idsQueryBuilder = QueryBuilders.idsQuery().addIds(productId);
+ 
+NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
+    .withQuery(idsQueryBuilder)
+    .build();
+ 
+SearchHit<Product> productSearchHit = elasticsearchOperations.searchOne(nativeSearchQuery, Product.class);
+```
+
 ## BoolQueryBuilder
 A Query that matches documents matching boolean combinations of other queries.
 
+```java
+String name = "iPhone12";
+
+BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
+    .must(QueryBuilders.matchQuery("name", name))
+    .must(QueryBuilders.termQuery("isVisible", true));
+ 
+NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
+    .withQuery(boolQueryBuilder)
+    .build();
+
+long count =  elasticsearchOperations.count(nativeSearchQuery, Product.class);
+```
 ## MatchAllQueryBuilder
 A query that matches on all documents.
 
