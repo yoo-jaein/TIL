@@ -1,24 +1,23 @@
 # QueryBuilder
 
 ## ExistsQueryBuilder
-A filter to filter only documents where a field exists in them.
+필드가 존재하는 문서
+
+```java
+ExistsQueryBuilder existsQueryBuilder = QueryBuilders.existsQuery("price");
+```
 
 ## IdsQueryBuilder
-Constructs a query that will match only specific ids within all types.
+특정 id에 해당하는 문서
 
 ```java
 String productId = "1122334455";
+
 IdsQueryBuilder idsQueryBuilder = QueryBuilders.idsQuery().addIds(productId);
- 
-NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
-    .withQuery(idsQueryBuilder)
-    .build();
- 
-SearchHit<Product> productSearchHit = elasticsearchOperations.searchOne(nativeSearchQuery, Product.class);
 ```
 
 ## BoolQueryBuilder
-A Query that matches documents matching boolean combinations of other queries.
+다른 쿼리들의 불리언 조합에 매치되는 문서
 
 ```java
 String name = "iPhone12";
@@ -26,37 +25,60 @@ String name = "iPhone12";
 BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
     .must(QueryBuilders.matchQuery("name", name))
     .must(QueryBuilders.termQuery("isVisible", true));
- 
-NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
-    .withQuery(boolQueryBuilder)
-    .build();
-
-long count =  elasticsearchOperations.count(nativeSearchQuery, Product.class);
 ```
 ## MatchAllQueryBuilder
-A query that matches on all documents.
 
 ## MatchQueryBuilder
-Creates a match query with type "BOOLEAN" for the provided field name and text.
+```java
+String name = "iPhone12";
+
+MatchQueryBuilder matchQueryBuilder = new MatchQueryBuilder("name", name);
+```
 
 ## MultiMatchQueryBuilder
-Creates a match query with type "BOOLEAN" for the provided field name and text.
 
 ## RangeQueryBuilder
-A Query that matches documents within an range of terms.
 
-## RegexQueryBuilder
-A Query that matches documents containing terms with a specified regular expression.
+```java
+double minPrice = 5000;
+double maxPrice = 9900;
+
+RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery("price")
+    .from(minPrice)
+    .to(maxPrice);
+```
+
+```java
+RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery("date")
+    .gte(dateFrom)
+    .lte(dateTo);
+```
 
 ## TermQueryBuilder
-A Query that matches documents containing a term.
+
+```java
+String name = "iPhone12";
+
+TermQueryBuilder termQueryBuilder = new TermQueryBuilder("name", name);
+```
 
 ## WildcardQueryBuilder
-Implements the wildcard search query.
+와일드카드
+
+```java
+String name = "iPhone";
+
+WildcardQueryBuilder wildcardQueryBuilder = QueryBuilders.wildcardQuery("name", name + "*");
+```
 
 ## PrefixQueryBuilder
 
-## DisMaxQueryBuilder
+```java
+String prefix = "i";
+
+PrefixQueryBuilder prefixQueryBuilder = QueryBuilders.prefixQuery("name", prefix)
+    .caseInsensitive(true);
+```
 
 ## 참고
 https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html    
