@@ -197,6 +197,21 @@ Query query = new NativeSearchQueryBuilder()
 SearchHits<Person> searchHits = operations.search(query, Person.class);
 ```
 
+[QueryBuilder](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/QueryBuilder.md)를 통해 쿼리를 구성한다.
+
+### BoolQueryBuilder
+```java
+BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
+    .must(QueryBuilders.matchQuery("name", name))
+    .must(QueryBuilders.termQuery("isVisible", true));
+
+NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
+    .withQuery(boolQueryBuilder)
+    .build();
+```
+
+
+
 ## 참고
 https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#reference  
 https://reflectoring.io/spring-boot-elasticsearch/  
