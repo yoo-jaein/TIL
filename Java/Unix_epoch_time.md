@@ -12,7 +12,6 @@ Unix time, Epoch(에포크) time, Unix epoch time, Posix(파직스) time, Unix t
 - 윤초를 제외하기 때문에 Unix 시간은 매일이 정확히 86400초를 포함하는 것처럼 처리된다.
 - Unix 계열의 운영 체제 및 파일 형식에서 널리 사용된다.
 
-
 ## 자바에서 Unix time 구하기
 ### 방법 1: System.currentTimeMillis()
 ```java
