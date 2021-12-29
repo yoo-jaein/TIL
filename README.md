@@ -45,6 +45,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Database
 - [DynamoDB review](https://github.com/yoo-jaein/TIL/blob/main/Database/DynamoDB_review.md) : DynamoDB 사용 후기
 - [MySQL auto_increment and Rollback](https://github.com/yoo-jaein/TIL/blob/main/Database/MySQL_auto_increment_and_Rollback.md) : MySQL에서 트랜잭션 롤백이 일어날 때 auto_increment 컬럼의 값은 어떻게 될까?
+- [RDB vs NoSQL](https://github.com/yoo-jaein/TIL/blob/main/Database/RDB_vs_NoSQL.md) : RDB vs NoSQL
 - [Show create table](https://github.com/yoo-jaein/TIL/blob/main/Database/Show_create_table.md) : MySQL에서 테이블의 생성 쿼리 알아내기
 
 ## Elasticsearch
