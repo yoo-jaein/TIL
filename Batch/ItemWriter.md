@@ -1,4 +1,4 @@
-# List of ItemWriters
+# ItemWriter
 
 ## AbstractItemStreamItemWriter
 

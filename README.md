@@ -22,7 +22,6 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Batch
 - [Batch application management](https://github.com/yoo-jaein/TIL/blob/main/Batch/Batch_application_management.md) : 스프링 배치 애플리케이션을 운영하는 방법
-- [Chunk based Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunk_based_Step.md) : 청크 기반 스텝
 - [Chunk-Oriented Processing](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunk_Oriented_Processing.md) : 청크 지향 프로세싱
 - [Chunksize](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunksize.md) : 청크 크기 정의하기
 - [Cron expression](https://github.com/yoo-jaein/TIL/blob/main/Batch/Cron_expression.md) : 크론 표현식
@@ -31,8 +30,8 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [JobParameters](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobParameters.md) : 잡 파라미터
 - [JobRepository](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobRepository.md) : JobRepository 스키마와 6개의 테이블
 - [JpaPagingItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/JpaPagingItemReader.md) : JpaPagingItemReader
-- [List of ItemReaders](https://github.com/yoo-jaein/TIL/blob/main/Batch/List_of_ItemReaders.md) : ItemReader 종류
-- [List of ItemWriters](https://github.com/yoo-jaein/TIL/blob/main/Batch/List_of_ItemWriters.md) : ItemWriter 종류
+- [ItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/ItemReader.md) : ItemReader 종류
+- [ItemWriter](https://github.com/yoo-jaein/TIL/blob/main/Batch/ItemWriter.md) : ItemWriter 종류
 - [Logging Item Reading Processing Writing](https://github.com/yoo-jaein/TIL/blob/main/Batch/Logging_Item_Reading_Processing_Writing.md) : 스프링 배치에서 Item을 Read, Process, Write할 때 로그를 찍는 방법
 - [RepositoryItemReader](https://github.com/yoo-jaein/TIL/blob/main/Batch/RepositoryItemReader.md) : RepositoryItemReader
 - [Spring Batch](https://github.com/yoo-jaein/TIL/blob/main/Batch/Spring_Batch.md) : 스프링 배치 프레임워크
