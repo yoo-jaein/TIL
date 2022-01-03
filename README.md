@@ -138,6 +138,9 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [JUnit4 annotations](https://github.com/yoo-jaein/TIL/blob/main/Test/JUnit4_annotations.md) : 자바 테스트 프레임워크 JUnit4의 어노테이션
 - [Mock](https://github.com/yoo-jaein/TIL/blob/main/Test/Mock.md) : 목(Mock) 객체
 
+## Vue
+- [File validation](https://github.com/yoo-jaein/TIL/blob/main/Vue/File_validation.md) : 파일 검사하기(파일 형식, 용량)
+
 ## Web
 - [Ajax](https://github.com/yoo-jaein/TIL/blob/main/Web/Ajax.md) : Ajax의 등장 배경과 개념
 - [Cookie and Session](https://github.com/yoo-jaein/TIL/blob/main/Web/Cookie_and_Session.md) : 쿠키와 세션의 개념, 동작 방식, 차이
