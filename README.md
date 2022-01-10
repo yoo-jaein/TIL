@@ -19,6 +19,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## Architecture
 - [Monolithic vs Microservices](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Monolithic_vs_Microservices.md) : 모놀리식과 마이크로서비스 아키텍처
+- [Handling high traffic](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Handling_high_traffic.md) : 대용량 트래픽 처리하기
 
 ## Batch
 - [Batch application management](https://github.com/yoo-jaein/TIL/blob/main/Batch/Batch_application_management.md) : 스프링 배치 애플리케이션을 운영하는 방법
@@ -130,6 +131,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Spring boot test class annotation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_boot_test_class_annotation.md) : 스프링 부트의 테스트 클래스 어노테이션 종류(@SpringBootTest, @WebMvcTest, @DataJpaTest)
 - [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Container.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
 - [Spring MVC Request Lifecycle](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_MVC_Request_Lifecycle.md) : 스프링 MVC 요청 라이프사이클(DispatcherServlet, HandlerMapping, Controller, HandlerAdapter, Interceptor, View, ViewResolver)
+- [Spring Webflux WebClient](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_Webflux_WebClient.md) : 스프링 웹플럭스와 WebClient
 - [Why use service and serviceimpl](https://github.com/yoo-jaein/TIL/blob/main/Spring/Why_use_service_and_serviceimpl.md) : 스프링으로 개발할 때 서비스 인터페이스와 서비스 구현 클래스를 두는 이유
 
 ## Test
