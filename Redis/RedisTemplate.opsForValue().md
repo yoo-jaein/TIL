@@ -220,7 +220,7 @@ void set(K key, V value, long offset);
 Long size(K key);
 ```
 - 키에 저장된 문자열 값의 길이를 가져온다.
-- 키에 문자열이 아닌 값이 있으면 오류가 반환됩니다.
+- 키에 문자열이 아닌 값이 있으면 오류가 반환된다.
 
 ## setBit()
 ```java
