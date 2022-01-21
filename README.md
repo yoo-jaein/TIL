@@ -117,6 +117,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [@Configuration](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40Configuration.md) : 스프링 설정 클래스의 @Configuration
 - [@DateTimeFormat](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40DateTimeFormat.md) : @DateTimeFormat
 - [application.yml](https://github.com/yoo-jaein/TIL/blob/main/Spring/application.yml.md) : application.yml
+- [Automating the generation of API documentation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Automating_the_generation_of_API_documentation.md) : API 문서 자동화
 - [Controller and Service](https://github.com/yoo-jaein/TIL/blob/main/Spring/Controller_and_Service.md) : 스프링 컨트롤러와 서비스의 개념
 - [EhCache](https://github.com/yoo-jaein/TIL/blob/main/Spring/EhCache.md) : 스프링 부트 환경에서 Ehcache 사용법
 - [Entity and DTO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Entity_and_DTO.md) : 엔티티와 DTO의 개념, DTO를 반드시 사용해야 하는 이유
