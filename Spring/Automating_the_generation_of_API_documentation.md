@@ -4,7 +4,7 @@ API 문서 자동화
 ## Spring Rest Docs
 [Spring Rest Docs](https://spring.io/projects/spring-restdocs)는 RESTful 서비스를 쉽게 문서화하는 프로젝트다. [Asciidoctor](http://asciidoctor.org/)를 사용하여 작성된 문서와 테스트 실행으로 자동 생성된 스니펫을 결합시켜 문서를 만들 수 있다. Swagger같은 도구에서 생성된 완전 자동화된 문서가 아니라 GitHub의 API 문서처럼 읽기 쉬운 가이드를 만들기 위한 라이브러리다.
 
-- Spring MVC의 Test framework, Spring WebFlux의 WebTestClient 또는 REST Assured 3로 작성된 테스트로 스니펫을 생성한다. 생성된 스니펫과 손으로 작성한 문서를 결합하여 RESTful 서비스를 문서화한다. 이러한 테스트 중심 접근은 문서의 정확성을 보장해준다. 만약 스니펫이 정확하지 않다면 테스트가 실패할 것이다.
+- Spring MVC의 Test framework, Spring WebFlux의 WebTestClient 또는 REST Assured 3로 작성된 테스트로 스니펫을 생성한다. 생성된 스니펫과 손으로 작성한 문서를 결합하여 RESTful 서비스를 문서화한다. 이러한 테스트 중심 접근은 문서의 정확성을 보장해준다. 테스트 코드가 실패하면 스니펫이 생성되지 않기 때문이다.
 - 스니펫을 결합하는데 Asciidoctor를 사용한다. Asciidoctor는 AsciiDoc®을 문서 모델로 구문 분석하고 HTML 5, DocBook 5, PDF 및 기타 출력 형식으로 변환하기 위한 Ruby 기반의 빠른 오픈 소스 텍스트 프로세서다.
 
 ### 0. 샘플 어플리케이션
@@ -88,27 +88,60 @@ asciidoctor {
 
 ### 3. 테스트 코드 작성
 기본적으로 Spring REST Docs는 문서화하는 페이로드가 JSON이라고 가정한다. JSON이 아닌 XML 페이로드를 문서화하려면 request 또는 response의 콘텐츠 유형이 application/xml과 호환되어야 한다.
+
 ```json
 {
-    "contact": {
-        "name": "Jane Doe",
-        "email": "jane.doe@example.com"
+  "result" : {
+    "users" : [
+      {
+        "userId" : 1,
+        "age" : 20,
+        "contact" : {
+          "name" : "kim", 
+          "email" : "kim@example.com"
+        },
+        "registered" : true
+      },
+      {
+        "userId" : 2,
+        "age" : 30,
+        "contact" : {
+          "name" : "lee",
+          "email" : "lee@example.com"
+        },
+        "registered" : false
+      },
+      {
+        "userId" : 3,
+        "age" : 25,
+        "contact" : {
+          "name" : "yoo",
+          "email" : "yoo@example.com"
+        },
+        "registered" : true
+      }
+    ],
+    "pageInfo": {
+      "totalElements" : 3,
+      "page" : 0,
+      "size" : 5
     }
+  }
 }
 ```
 
-#### Request
-
-
-
-#### Response
 ```java
-this.webTestClient.get().uri("user/5").accept(MediaType.APPLICATION_JSON)
-    .exchange().expectStatus().isOk().expectBody()
-    .consumeWith(document("user",
-        responseFields(
-            fieldWithPath("contact.email").description("The user's email address"), 
-            fieldWithPath("contact.name").description("The user's name")))); 
+responseFields(
+    beneathPath("result").withSubsectionId("result"),
+    fieldWithPath("pageInfo.totalElements").type(JsonFieldType.STRING).description("전체 개수"),
+    fieldWithPath("pageInfo.page").type(JsonFieldType.STRING).description("페이지 번호"),
+    fieldWithPath("pageInfo.size").type(JsonFieldType.NUMBER).description("페이지 크기"),
+    fieldWithPath("users[].userId").type(JsonFieldType.STRING).description("유저 ID"),
+    fieldWithPath("users[].age").type(JsonFieldType.NUMBER).description("나이"),
+    fieldWithPath("users[].registered").type(JsonFieldType.BOOLEAN).description("가입 여부"),
+    fieldWithPath("users[].contact.name").type(JsonFieldType.STRING).description("유저 이름"),
+    fieldWithPath("users[].contact.email").type(JsonFieldType.STRING).description("유저 이메일")
+)
 ```
 
 
@@ -123,7 +156,7 @@ this.webTestClient.get().uri("user/5").accept(MediaType.APPLICATION_JSON)
 
 ### 5. Asciidoc 파일 구성
 Asciidoctor의 매크로를 사용하여 스니펫을 가져오고 Asciidoc 파일을 구성한다.
-```adoc
+```Asciidoc
 [[example_curl_request]]
 == Curl request
 
