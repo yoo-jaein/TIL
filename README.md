@@ -100,6 +100,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [OpenCSV](https://github.com/yoo-jaein/TIL/blob/main/Java/OpenCSV.md) : .csv 파일 파싱을 위한 자바 라이브러리 
 - [Primitive type vs Reference type](https://github.com/yoo-jaein/TIL/blob/main/Java/Primitive_type_vs_Reference_type.md) : 자바 데이터 타입 중 기본형과 참조형
 - [Reflection](https://github.com/yoo-jaein/TIL/blob/main/Java/Reflection.md) : 자바 Reflection API
+- [References](https://github.com/yoo-jaein/TIL/blob/main/Java/References.md) : 자바 참조
 - [Unix epoch time](https://github.com/yoo-jaein/TIL/blob/main/Java/Unix_epoch_time.md) : 자바에서 Unix epoch time 구하기
 
 ## Linux

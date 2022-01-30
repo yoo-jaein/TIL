@@ -25,3 +25,4 @@ Spring MVC처럼 스레드가 블록되어 I/O가 끝날 때까지 Waiting하는
 
 ## 참고
 [[NHN FORWARD 2020] 내가 만든 WebFlux가 느렸던 이유](https://youtu.be/I0zMm6wIbRI)  
+https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#webflux-framework-choice  
