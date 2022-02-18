@@ -49,6 +49,7 @@ SoftReference 클래스를 이용하여 생성한다. apple = null 되면 참조
 팬텀 참조는 일반적으로 잘 사용되지 않으며 SoftReference 또는 WeakReference와 상당히 다르다. 객체에 대한 그립이 너무 약해서 객체를 검색할 수도 없다. get() 메서드는 항상 null을 반환한다. 팬텀 참조의 용도는 객체가 메모리에서 삭제되는 시점을 추적하는 것이다.
 
 ## 참고
+https://stackoverflow.com/questions/299659/whats-the-difference-between-softreference-and-weakreference-in-java  
 https://www.geeksforgeeks.org/types-references-java/  
 https://www.baeldung.com/java-weak-reference  
 https://www.baeldung.com/java-soft-references  
