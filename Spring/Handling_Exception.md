@@ -27,7 +27,7 @@ public ResponseEntity<List<DocumentResponse>> getAllDocuments() {
 // DocumentController
 @ExceptionHandler({ DocumentException.class, ReplyException.class })
 public void handleException() {
-	//
+	//...
 }
 ```
 
@@ -120,13 +120,14 @@ REST API에서는 일반적으로 Global Exception Handling 전략을 기반으�
 
 먼저 REST API에서 HTTP Status Code를 활용하는 다양한 케이스를 살펴보자. 이 중에 정답은 없으며 클라이언트의 성격, 애플리케이션의 특성, 개발자의 취향에 따라 선택한다. 
 - 응답이 반드시 있어야 하는 API에서 해당되는 데이터가 없다면 에러 코드 404 NOT FOUND를 보내는 케이스.
-  - 단건 조회(/document/3)는 id에 해당하는 document가 없으며 존재하지 않는 URL에 접근했다는 의미로 404 NOT FOUND를 보냄.
-- 데이터가 있을 수도 있고 없을 수도 있다면(예: 리스트를 반환하는 검색용 API) 서버에서 정상적으로 처리되었다는 의미로 200 SUCCESS를 보내거나 204 NO CONTENT를 보내는 케이스.
-  - 응답의 리스트가 비어있는게 오류라고 생각하면 4XX 코드를 보낼 수도 있음. 다만 일반적으로는 서버에서 정상적으로 처리되었다는 의미를 더 강조하여 2XX 코드를 씀.
+  - 단건 조회(/document/3) API에서 요청 id에 해당하는 document가 없으며 클라이언트가 존재하지 않는 URL에 접근했다는 의미로 404 NOT FOUND를 보냄.
+- 데이터가 있을 수도 있고 없을 수도 있는 API(예: 리스트를 반환하는 검색용 API)에서 검색 결과가 없을 때 요청에 대해 서버에서 정상적으로 처리해줬다는 의미로 200 SUCCESS를 보내거나 204 NO CONTENT를 보내는 케이스.
+  - 만약 응답의 리스트가 비어있는게 오류라고 생각하면 4XX 코드를 보낼 수도 있음. 다만 일반적으로는 서버에서 정상적으로 처리되었다는 의미를 더 강조하여 2XX 코드를 씀.
 - 모든 처리에 대해 항상 200 SUCCESS를 보내는 케이스.
   - HTTP는 전송 계층일 뿐 서버로부터 무언가 응답이 왔으면 성공으로 간주하는 것.
 
 ### 1) CustomResponseEntity 구현하기
+- 모든 처리에 대해 항상 HTTP 200 SUCCESS를 전달한다. 
 
 ```java
 @Getter
@@ -155,7 +156,7 @@ REST API의 응답으로 ResponseEntity를 반환하는데, 모든 처리에 대
 @Getter
 public enum Result {
 	OK(HttpStatus.OK, 0, "정상 처리"),
-	//...
+	;//...
 	
 	private final HttpStatus httpStatus;
 	private final int code;
@@ -256,8 +257,8 @@ public DocumentResponse getDocument(Long documentId) {
 만약 documentId에 해당하는 문서가 없다면 DocumentException이 던져진다. 그러면 handleDocumentException()에서 그 예외를 처리하고 CustomResponseEntity를 만들어 반환한다.
 
 ### 2) ErrorResponse 구현하고 ResponseEntity 사용하기
-
-CustomResponseEntity를 만들지 않고 기존의 ResponseEntity를 그대로 활용하는 방법도 있다.
+- CustomResponseEntity를 만들지 않고 기존의 ResponseEntity를 그대로 활용
+- 특정 예외 상황에 대해 HTTP Status Code를 다르게 구성
 
 ```java
 @Getter

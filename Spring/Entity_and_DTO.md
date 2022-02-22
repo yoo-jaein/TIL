@@ -30,6 +30,10 @@ Domain model
 
 4. 엔티티에서 비밀번호와 같이 감춰야할 정보들도 모두 View Layer로 전달될 수 있다. 이러한 컬럼에 @JsonIgnore를 사용해 전달을 막을 수 있지만, 엔티티가 API 스펙에 의존성을 갖게 되므로 좋지 않다.   
 
+## Entity <-> DTO
+https://www.baeldung.com/java-dto-pattern
+https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application
+
    
 ## 참고
 https://woowacourse.github.io/javable/post/2020-08-31-dto-vs-entity/  
