@@ -101,6 +101,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Primitive type vs Reference type](https://github.com/yoo-jaein/TIL/blob/main/Java/Primitive_type_vs_Reference_type.md) : 자바 데이터 타입 중 기본형과 참조형
 - [Reflection](https://github.com/yoo-jaein/TIL/blob/main/Java/Reflection.md) : 자바 Reflection API
 - [References](https://github.com/yoo-jaein/TIL/blob/main/Java/References.md) : 자바 참조
+- [Serialization and Deserialization](https://github.com/yoo-jaein/TIL/blob/main/Java/Serialization_and_Deserialization.md) : 자바 직렬화와 역직렬화
 - [Unix epoch time](https://github.com/yoo-jaein/TIL/blob/main/Java/Unix_epoch_time.md) : 자바에서 Unix epoch time 구하기
 
 ## Linux

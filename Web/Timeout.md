@@ -27,7 +27,7 @@ WebClient webClient = WebClient
 				.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000) // 밀리초 단위, 10초
 		)
 	)
-.build();
+	.build();
 ```
 
 WebClient를 이용할 때 Connection timeout 시간을 설정하려면 HttpClient 인스턴스를 만들고 이를 clientConnector로 설정해야 한다. 위 코드에서 10초 이내에 클라이언트와 서버 연결이 완료되지 않으면 ConnectionTimeoutException이 발생한다. Netty는 Connection timeout을 기본적으로 30초로 설정한다. 
@@ -45,14 +45,13 @@ java.net.SocketTimeoutException: Read Timed out
 ```java
 WebClient webClient = WebClient
 	.builder()
-		.clientConnector(
-			new ReactorClientHttpConnector(HttpClient.create()
-				.doOnConnected(connection -> connection
-					.addHandler(new ReadTimeoutHandler(10)) // 초단위, 10초
-			)
+	.clientConnector(
+		new ReactorClientHttpConnector(HttpClient.create()
+			.doOnConnected(connection -> connection
+			.addHandler(new ReadTimeoutHandler(10)) // 초단위, 10초
 		)
-	)
-.build();
+	))
+	.build();
 ```
 WebClient를 이용할 때 Read timeout 시간을 설정하려면 HttpClient 인스턴스를 만들고 doOnConnected 콜백 핸들러를 사용해야 한다. 그런 다음 HttpClient 인스턴스를 WebClient의 clientConnector로 설정해야 한다. 위 코드에서 연결이 설정된 후 10초 이내에 읽기 작업이 시작되지 않으면 ReadTimeoutException이 발생한다.
 
@@ -64,15 +63,14 @@ WebClient를 이용할 때 Read timeout 시간을 설정하려면 HttpClient 인
 ```java
 WebClient webClient = WebClient
 	.builder()
-		.clientConnector(
-			new ReactorClientHttpConnector(HttpClient.create()
-				.doOnConnected(connection -> connection
-					.addHandler(new ReadTimeoutHandler(10)
-					.addHandler(new WriteTimeoutHandler(10)) // 초단위, 10
-			)
+	.clientConnector(
+		new ReactorClientHttpConnector(HttpClient.create()
+			.doOnConnected(connection -> connection
+			.addHandler(new ReadTimeoutHandler(10)
+			.addHandler(new WriteTimeoutHandler(10)) // 초단위, 10
 		)
-	)
-.build();
+	))
+	.build();
 ```
 위 코드에서 연결이 설정된 후 10초 이내에 쓰기 작업이 완료되지 않으면 WriteTimeoutException이 발생한다. 
 
