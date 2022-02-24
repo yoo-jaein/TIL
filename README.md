@@ -92,6 +92,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
 - [Custom annotation](https://github.com/yoo-jaein/TIL/blob/main/Java/Custom_annotation.md) : 커스텀 어노테이션
 - [How to measure execution time for a Java code](https://github.com/yoo-jaein/TIL/blob/main/Java/How_to_measure_execution_time_for_a_Java_code.md) : 자바 코드의 실행시간 측정하기
+- [Jackson](https://github.com/yoo-jaein/TIL/blob/main/Java/Jackson.md) : Jackson 라이브러리
 - [Instant](https://github.com/yoo-jaein/TIL/blob/main/Java/Instant.md) : java.time.Instant
 - [Java command line options](https://github.com/yoo-jaein/TIL/blob/main/Java/Java_command_line_options.md) : 자바 커맨드 라인 옵션
 - [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
