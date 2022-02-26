@@ -38,7 +38,7 @@ Member findMember = em.createQuery(qlString, Member.class)
 List<Member> findUser(@Param("username") String username, @Param("age") int age);
 ```
 
-이렇게 JPQL을 직접 작성하는 방법에도 문제가 있다. 문자로 작성하기 때문에 쿼리에 오타가 있다면 컴파일 시점에 오류를 발견하는 것이 아니라 런타임에 오류를 발견하게 된다. 또한, 파라미터 바인딩을 직접 해줘야하는 단점이 있다.
+스프링 데이터 JPA의 @Query 어노테이션을 사용하면 JPA Named 쿼리처럼 애플리케이션 실행 시점에 문법 오류를 발견할 수 있다. 그러나 파라미터 바인딩(위치 기반/이름 기반)을 직접 해줘야하는 단점이 있다.
 
 ## Querydsl
 Querydsl은 JPQL 빌더이다. 쿼리를 메서드로 구조화하여 자바 코드 기반으로 작성할 수 있게 도와주는 라이브러리이다. 즉, JPQL의 사용성을 높이기 위해 확장된 라이브러리가 Querydsl인 것이다. 따라서 대부분의 경우 고민없이 Querydsl로 가면 된다. 

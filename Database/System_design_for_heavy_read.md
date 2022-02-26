@@ -24,5 +24,5 @@ Read 부하(Select 쿼리)가 매우 많이 발생하는 상황에서 데이터�
   - 지연이 허용되지 않는(low latency) 중요한 쿼리라면 반드시 master 데이터베이스를 봐야한다. 그렇다면 데이터베이스 레벨에서 수직적/수평적 파티셔닝이나 샤딩을 고려한다.
 - 커맨드 쿼리를 분리할 수 있는가? (CQRS)
   - [CQRS](https://freedeveloper.tistory.com/399)란 명령(시스템의 데이터를 변경)하는 구성 요소와 쿼리(시스템의 데이터를 조회)하는 구성 요소를 나누는 것이다. 조인된 응답 결과 자체를 하나의 도큐먼트로 저장한다. 예를 들어, RDB에 데이터가 삽입되면 조회 성능이 빠른 MongoDB에 조회될 결과 자체를 동기화시켜두고 MongoDB에서 조회한다.
-- 데이터베이스 장애에 대비하기 위해 데이터베이스 프록시를 이용하거나 백업을 자주 한다.
+- 혹시 모를 데이터베이스 장애에 대비하기 위해 [데이터베이스 프록시](https://notemusic.tistory.com/52)를 이용하거나 백업을 자주 한다.
   - [Amazon RDS Proxy](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/rds-proxy.html)
