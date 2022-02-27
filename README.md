@@ -71,20 +71,22 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Container vs Application managed EntityManager](https://github.com/yoo-jaein/TIL/blob/main/JPA/Container_vs_Application_managed_EntityManager.md) : 컨테이너가 관리하는 엔티티 매니저와 애플리케이션이 관리하는 엔티티 매니저의 차이, 스프링 컨테이너의 영속성 컨텍스트 기본 전략
 - [DTO and mapping](https://github.com/yoo-jaein/TIL/blob/main/JPA/DTO_and_mapping.md) : 엔티티와 DTO의 변환 메서드, 변환 시 주의 사항
 - [EntityManager and EntityManagerFactory](https://github.com/yoo-jaein/TIL/blob/main/JPA/EntityManager_and_EntityManagerFactory.md) : 엔티티 매니저 팩토리와 엔티티 매니저의 관계
+- [find() vs JPQL](https://github.com/yoo-jaein/TIL/blob/main/JPA/find()_vs_JPQL.md) : find() 메서드와 JPQL의 내부 동작 방식 차이, 결론
+- [findById() vs getOne()](https://github.com/yoo-jaein/TIL/blob/main/JPA/findById()_vs_getOne().md) :  findById()와 getOne()의 차이점, 메서드 이름에서 find-와 get-의 구분
+- [First level cache and Second level cache in Hibernate](https://github.com/yoo-jaein/TIL/blob/main/JPA/First_level_cache_and_Second_level_cache_in_Hibernate.md) : 1차 캐시와 2차 캐시
 - [How to concat String and stringValue()](https://github.com/yoo-jaein/TIL/blob/main/JPA/How_to_concat_String_and_stringValue().md) : Querydsl에서 문자열 String과 stringValue()를 연결하는 방법
 - [How to get JPAQueryFactory bean](https://github.com/yoo-jaein/TIL/blob/main/JPA/How_to_get_JPAQueryFactory_bean.md) : Querydsl에서 쿼리를 만들 때 필요한 JPAQueryFactory를 받아오는 방법
 - [Improve readability of Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Improve_readability_of_Querydsl.md) : Querydsl 코드의 가독성을 높이는 방법
 - [JPA and ORM](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPA_and_ORM.md) : JPA, ORM, Hibernate의 개념 정리와 JPA를 사용해야 하는 이유 
-- [JPQL](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPQL.md) : 객체 지향 쿼리 JPQL
 - [JpaRepository and SimpleJpaRepository](https://github.com/yoo-jaein/TIL/blob/main/JPA/JpaRepository_and_SimpleJpaRepository.md) : JpaRepository와 그 구현체인 SimpleJpaRepository 들여다보기
+- [JPQL](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPQL.md) : 객체 지향 쿼리 JPQL
+- [N+1 Query problem in JPA](https://github.com/yoo-jaein/TIL/blob/main/JPA/N+1_Query_problem_in_JPA.md) : N+1 문제의 발생 원인과 해결 방법
 - [Persistence Context](https://github.com/yoo-jaein/TIL/blob/main/JPA/Persistence_Context.md) : 영속성 컨텍스트의 개념과 장점, 영속성 컨텍스트가 실제 데이터베이스에 반영되는 시점은?
 - [Query method, JPQL or Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Query_method_or_JPQL_or_Querydsl.md) : Repository를 개발할 때 쿼리 메서드, JPQL, Querydsl과 같은 JPQL 빌더 라이브러리를 사용할 수 있다. 이 중에 가장 효과적인 방법은?
-- [QuerydslRepositorySupport](https://github.com/yoo-jaein/TIL/blob/main/JPA/QuerydslRepositorySupport.md) : QuerydslRepositorySupport
 - [Querydsl Fetchable\<T>](https://github.com/yoo-jaein/TIL/blob/main/JPA/Querydsl_Fetchable.md) : Querydsl에서 결과를 반환하는 메서드의 종류(fetch(), fetchFirst() 등)
+- [QuerydslRepositorySupport](https://github.com/yoo-jaein/TIL/blob/main/JPA/QuerydslRepositorySupport.md) : QuerydslRepositorySupport
 - [Refactor JPQL to Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Refactor_JPQL_to_Querydsl.md) : @Query로 작성된 JPQL을 Querydsl 코드로 재구성하기
 - [Update multiple columns in Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Update_multiple_columns_in_Querydsl.md) : Querydsl에서 Update문을 작성할 때 여러 컬럼을 set()하려면 어떻게 해야 할까?
-- [find() vs JPQL](https://github.com/yoo-jaein/TIL/blob/main/JPA/find()_vs_JPQL.md) : find() 메서드와 JPQL의 내부 동작 방식 차이, 결론
-- [findById() vs getOne()](https://github.com/yoo-jaein/TIL/blob/main/JPA/findById()_vs_getOne().md) :  findById()와 getOne()의 차이점, 메서드 이름에서 find-와 get-의 구분
 
 ## Java
 - [Apache tika](https://github.com/yoo-jaein/TIL/blob/main/Java/Apache_tika.md) : Apache tika 라이브러리
