@@ -1,5 +1,7 @@
 # JpaRepository and SimpleJpaRepository
 
+Spring Data JPA는 스프링 프레임워크에서 JPA를 편리하게 사용할 수 있도록 지원해주는 프로젝트다. Spring Data JPA의 Repository 인터페이스의 기본 구현체인 SimpleJpaRepository는 내부적으로 EntityManager(JPA)를 사용하고 있다.
+
 ## JpaRepository
 org.springframework.data.jpa.repository.JpaRepository  
 
