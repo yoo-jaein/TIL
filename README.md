@@ -74,6 +74,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [find() vs JPQL](https://github.com/yoo-jaein/TIL/blob/main/JPA/find()_vs_JPQL.md) : find() 메서드와 JPQL의 내부 동작 방식 차이, 결론
 - [findById() vs getOne()](https://github.com/yoo-jaein/TIL/blob/main/JPA/findById()_vs_getOne().md) :  findById()와 getOne()의 차이점, 메서드 이름에서 find-와 get-의 구분
 - [First level cache and Second level cache in Hibernate](https://github.com/yoo-jaein/TIL/blob/main/JPA/First_level_cache_and_Second_level_cache_in_Hibernate.md) : 1차 캐시와 2차 캐시
+- [Hibernate](https://github.com/yoo-jaein/TIL/blob/main/JPA/Hibernate.md) : 하이버네이트
 - [How to concat String and stringValue()](https://github.com/yoo-jaein/TIL/blob/main/JPA/How_to_concat_String_and_stringValue().md) : Querydsl에서 문자열 String과 stringValue()를 연결하는 방법
 - [How to get JPAQueryFactory bean](https://github.com/yoo-jaein/TIL/blob/main/JPA/How_to_get_JPAQueryFactory_bean.md) : Querydsl에서 쿼리를 만들 때 필요한 JPAQueryFactory를 받아오는 방법
 - [Improve readability of Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Improve_readability_of_Querydsl.md) : Querydsl 코드의 가독성을 높이는 방법
