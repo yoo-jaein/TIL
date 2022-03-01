@@ -5,6 +5,11 @@
 __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 
 ## 📌 INDEX
+
+## Architecture
+- [Monolithic vs Microservices](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Monolithic_vs_Microservices.md) : 모놀리식과 마이크로서비스 아키텍처
+- [Handling high traffic](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Handling_high_traffic.md) : 대용량 트래픽 처리하기
+
 ## AWS
 - [Autoscaling](https://github.com/yoo-jaein/TIL/blob/main/AWS/Autoscaling.md) : 로드 밸런서와 AWS EC2의 오토스케일링
 - [Container](https://github.com/yoo-jaein/TIL/blob/main/AWS/Container.md) : AWS의 가상화/컨테이너 도구
@@ -15,11 +20,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Instance Scheduler](https://github.com/yoo-jaein/TIL/blob/main/AWS/Instance_Scheduler.md) : AWS Instance Scheduler
 - [Monitoring](https://github.com/yoo-jaein/TIL/blob/main/AWS/Monitoring.md) : AWS의 모니터링 도구(CloudWatch, CloudTrail)
 - [Storage](https://github.com/yoo-jaein/TIL/blob/main/AWS/Storage.md) : AWS의 스토리지(EBS, S3)
-- [VPC](https://github.com/yoo-jaein/TIL/blob/main/AWS/VPC.md) : AWS VPC 
-
-## Architecture
-- [Monolithic vs Microservices](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Monolithic_vs_Microservices.md) : 모놀리식과 마이크로서비스 아키텍처
-- [Handling high traffic](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Handling_high_traffic.md) : 대용량 트래픽 처리하기
+- [VPC](https://github.com/yoo-jaein/TIL/blob/main/AWS/VPC.md) : AWS VPC
 
 ## Batch
 - [Batch application management](https://github.com/yoo-jaein/TIL/blob/main/Batch/Batch_application_management.md) : 스프링 배치 애플리케이션을 운영하는 방법
@@ -65,6 +66,27 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [How to fix CheckStyle warnings](https://github.com/yoo-jaein/TIL/blob/main/IntelliJ/How_to_fix_CheckStyle_warnings.md) : 인텔리제이에서 CheckStyle 경고를 해결하는 방법
 - [IntelliJ IDEA Shortcuts](https://github.com/yoo-jaein/TIL/blob/main/IntelliJ/IntelliJ_IDEA_Shortcuts.md) : 알아두면 좋은 인텔리제이 단축키 모음
 
+## Java
+- [Apache tika](https://github.com/yoo-jaein/TIL/blob/main/Java/Apache_tika.md) : Apache tika 라이브러리
+- [Arrays.asList() UnsupportedOperationException](https://github.com/yoo-jaein/TIL/blob/main/Java/Arrays.asList()_UnsupportedOperationException.md) : Arrays.asList() 사용 시 UnsupportedOperationException 발생
+- [Boolean.getBoolean() vs parseBoolean()](https://github.com/yoo-jaein/TIL/blob/main/Java/Boolean.getBoolean()_vs_parseBoolean().md) : Boolean.getBoolean()과 Boolean.parseBoolean()의 차이점
+- [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
+- [Custom annotation](https://github.com/yoo-jaein/TIL/blob/main/Java/Custom_annotation.md) : 커스텀 어노테이션
+- [Flow](https://github.com/yoo-jaein/TIL/blob/main/Java/Flow.md) : Flow
+- [How to measure execution time for a Java code](https://github.com/yoo-jaein/TIL/blob/main/Java/How_to_measure_execution_time_for_a_Java_code.md) : 자바 코드의 실행시간 측정하기
+- [Jackson](https://github.com/yoo-jaein/TIL/blob/main/Java/Jackson.md) : Jackson 라이브러리
+- [Instant](https://github.com/yoo-jaein/TIL/blob/main/Java/Instant.md) : java.time.Instant
+- [Java command line options](https://github.com/yoo-jaein/TIL/blob/main/Java/Java_command_line_options.md) : 자바 커맨드 라인 옵션
+- [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
+- [log4j Logging level](https://github.com/yoo-jaein/TIL/blob/main/Java/log4j_Logging_level.md) : log4j의 로그 레벨과 레벨에 따른 작동 방식
+- [Method Overloading](https://github.com/yoo-jaein/TIL/blob/main/Java/Method_Overloading.md) : 자바 메서드 오버로딩의 조건과 개념, 주의 사항
+- [OpenCSV](https://github.com/yoo-jaein/TIL/blob/main/Java/OpenCSV.md) : .csv 파일 파싱을 위한 자바 라이브러리
+- [Primitive type vs Reference type](https://github.com/yoo-jaein/TIL/blob/main/Java/Primitive_type_vs_Reference_type.md) : 자바 데이터 타입 중 기본형과 참조형
+- [Reflection](https://github.com/yoo-jaein/TIL/blob/main/Java/Reflection.md) : 자바 Reflection API
+- [References](https://github.com/yoo-jaein/TIL/blob/main/Java/References.md) : 자바 참조
+- [Serialization and Deserialization](https://github.com/yoo-jaein/TIL/blob/main/Java/Serialization_and_Deserialization.md) : 자바 직렬화와 역직렬화
+- [Unix epoch time](https://github.com/yoo-jaein/TIL/blob/main/Java/Unix_epoch_time.md) : 자바에서 Unix epoch time 구하기
+
 ## JPA
 - [@Autowired vs @PersistenceContext for EntityManager](https://github.com/yoo-jaein/TIL/blob/main/JPA/%40Autowired_vs_%40PersistenceContext_for_EntityManager.md) : 스프링 부트에서 엔티티 매니저를 주입받는 방법
 - [@Modifying](https://github.com/yoo-jaein/TIL/blob/main/JPA/%40Modifying.md) : 스프링 데이터 JPA에서 @Query와 함께 사용되는 @Modifying
@@ -88,26 +110,6 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [QuerydslRepositorySupport](https://github.com/yoo-jaein/TIL/blob/main/JPA/QuerydslRepositorySupport.md) : QuerydslRepositorySupport
 - [Refactor JPQL to Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Refactor_JPQL_to_Querydsl.md) : @Query로 작성된 JPQL을 Querydsl 코드로 재구성하기
 - [Update multiple columns in Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Update_multiple_columns_in_Querydsl.md) : Querydsl에서 Update문을 작성할 때 여러 컬럼을 set()하려면 어떻게 해야 할까?
-
-## Java
-- [Apache tika](https://github.com/yoo-jaein/TIL/blob/main/Java/Apache_tika.md) : Apache tika 라이브러리
-- [Arrays.asList() UnsupportedOperationException](https://github.com/yoo-jaein/TIL/blob/main/Java/Arrays.asList()_UnsupportedOperationException.md) : Arrays.asList() 사용 시 UnsupportedOperationException 발생
-- [Boolean.getBoolean() vs parseBoolean()](https://github.com/yoo-jaein/TIL/blob/main/Java/Boolean.getBoolean()_vs_parseBoolean().md) : Boolean.getBoolean()과 Boolean.parseBoolean()의 차이점
-- [Collections.singletonList() vs List.asList()](https://github.com/yoo-jaein/TIL/blob/main/Java/Collections.singletonList()_vs_List.asList().md) : Collections.singletonList()와 List.asList()의 차이점
-- [Custom annotation](https://github.com/yoo-jaein/TIL/blob/main/Java/Custom_annotation.md) : 커스텀 어노테이션
-- [How to measure execution time for a Java code](https://github.com/yoo-jaein/TIL/blob/main/Java/How_to_measure_execution_time_for_a_Java_code.md) : 자바 코드의 실행시간 측정하기
-- [Jackson](https://github.com/yoo-jaein/TIL/blob/main/Java/Jackson.md) : Jackson 라이브러리
-- [Instant](https://github.com/yoo-jaein/TIL/blob/main/Java/Instant.md) : java.time.Instant
-- [Java command line options](https://github.com/yoo-jaein/TIL/blob/main/Java/Java_command_line_options.md) : 자바 커맨드 라인 옵션
-- [List.isEmpty() vs List.size()](https://github.com/yoo-jaein/TIL/blob/main/Java/List.isEmpty()_vs_List.size().md) : 자바 List의 원소 유무를 알아내는 방법
-- [log4j Logging level](https://github.com/yoo-jaein/TIL/blob/main/Java/log4j_Logging_level.md) : log4j의 로그 레벨과 레벨에 따른 작동 방식
-- [Method Overloading](https://github.com/yoo-jaein/TIL/blob/main/Java/Method_Overloading.md) : 자바 메서드 오버로딩의 조건과 개념, 주의 사항
-- [OpenCSV](https://github.com/yoo-jaein/TIL/blob/main/Java/OpenCSV.md) : .csv 파일 파싱을 위한 자바 라이브러리 
-- [Primitive type vs Reference type](https://github.com/yoo-jaein/TIL/blob/main/Java/Primitive_type_vs_Reference_type.md) : 자바 데이터 타입 중 기본형과 참조형
-- [Reflection](https://github.com/yoo-jaein/TIL/blob/main/Java/Reflection.md) : 자바 Reflection API
-- [References](https://github.com/yoo-jaein/TIL/blob/main/Java/References.md) : 자바 참조
-- [Serialization and Deserialization](https://github.com/yoo-jaein/TIL/blob/main/Java/Serialization_and_Deserialization.md) : 자바 직렬화와 역직렬화
-- [Unix epoch time](https://github.com/yoo-jaein/TIL/blob/main/Java/Unix_epoch_time.md) : 자바에서 Unix epoch time 구하기
 
 ## Linux
 - [Command](https://github.com/yoo-jaein/TIL/blob/main/Linux/Command.md) : 자주 쓰는 리눅스 명령어 모음
@@ -145,6 +147,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Spring IoC Container](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_IoC_Container.md) : 스프링 빈 팩토리와 애플리케이션 컨텍스트 용어 설명
 - [Spring MVC Request Lifecycle](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_MVC_Request_Lifecycle.md) : 스프링 MVC 요청 라이프사이클(DispatcherServlet, HandlerMapping, Controller, HandlerAdapter, Interceptor, View, ViewResolver)
 - [Spring MVC vs Spring WebFlux](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_MVC_vs_Spring_WebFlux.md) : 스프링 MVC와 스프링 웹플럭스 비교하기
+- [Spring WebFlux](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_WebFlux.md) : 스프링 웹플럭스
 - [Spring WebFlux WebClient](https://github.com/yoo-jaein/TIL/blob/main/Spring/Spring_WebFlux_WebClient.md) : 스프링 웹플럭스와 WebClient
 - [Why use service and serviceimpl](https://github.com/yoo-jaein/TIL/blob/main/Spring/Why_use_service_and_serviceimpl.md) : 스프링으로 개발할 때 서비스 인터페이스와 서비스 구현 클래스를 두는 이유
 

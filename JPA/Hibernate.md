@@ -26,6 +26,20 @@ void saveOrUpdate(Object object);
 ```
 - saveOrUpdate() : 레코드를 Insert 또는 Update할 수 있다.
 
+### merge()와 update()의 차이
+```java
+// package org.hibernate.Session;
+void update(Object object);
+```
+- update() : Hibernate 세션이 동일한 ID를 가진 이미 영속적인 인스턴스를 포함하지 않는다고 확신하는 경우
+  지정된 분리된 인스턴스의 식별자로 영구 인스턴스를 업데이트합니다. 동일한 식별자를 가진 영구 인스턴스가 있는 경우 예외가 발생합니다. 연결이 cascade="save-update"로 매핑된 경우 이 작업은 연결된 인스턴스로 계단식으로 진행됩니다.
+
+```java
+// package org.hibernate.Session;
+Object merge(Object object);
+```
+- merge() : 지정된 객체의 상태를 동일한 식별자를 가진 영구 객체에 머지한다. 현재 세션과 연결된 영구 인스턴스가 없으면 로드됩니다. 영구 인스턴스를 반환합니다. 지정된 인스턴스가 저장되지 않은 경우 복사본을 저장하고 새 영구 인스턴스로 반환합니다. merge 메서드는 리턴값이 있기 때문에 새로운 객체를 반환합니다.
+
 ## 하이버네이트의 영속성 객체 상태 
 1. transient : 자바 프로그램에서 생성되었지만 Hibernate의 Session과 연결되지 않은 객체는 transient 상태에 있다고 한다.
 2. persistent : 반면에, Hibernate의 Session과 연결된 객체를 persistent 객체라고 한다.
