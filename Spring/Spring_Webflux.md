@@ -66,7 +66,7 @@ Spring MVC, Spring Webflux 모두 동시성을 지원하지만 다음과 같은 
 ## Publisher
 발행자: 구독자로부터 받은 수요에 따라 구독자에게 일련의 이벤트를 내보낸다. 발행자는 여러 구독자에게 서비스를 제공할 수 있다.
 
-Mono와 Flux는 Reactor Stream의 Publisher 인터페이스를 구현하는 발행자 객체이며, 이 둘의 차이점은 발행하는 데이터 갯수다. Mono는 0~1개의 데이터를 발행하며 Flux는 0~N개의 데이터를 발행한다. 그래서 보통 여러 스트림을 하나의 결과로 모아줄 때 Mono를, 각각의 Mono를 합쳐서 하나의 컬렉션을 만들 때 Flux를 사용한다.
+Mono와 Flux는 Reactor Stream의 Publisher 인터페이스를 구현하는 발행자 객체이며, 이 둘의 차이점은 발행하는 데이터 갯수다. Mono는 0개 혹은 1개의 데이터를 발행하며 Flux는 0개부터 N개까지의 데이터를 발행한다. 그래서 보통 여러 스트림을 하나의 결과로 모아줄 때 Mono를, 각각의 Mono를 합쳐서 하나의 컬렉션을 만들 때 Flux를 사용한다.
 
 ### Mono
 ```java
@@ -113,8 +113,8 @@ public interface Processor<T, R> extends Subscriber<T>, Publisher<R> { }
 
 ## WebClient의 bodyToMono()와 bodyToFlux()
 WebClient는 불변이기 때문에 스레드 세이프하다.
-bodyToMono() : 단일 항목을 검색하는 데 사용된다. 0-1개의 항목을 방출한다.
-bodyToFlux() : 여러 항목을 검색하는 데 사용된다. 0-N 항목을 방출한다.
+- bodyToMono() : 단일 항목을 검색하는 데 사용된다. 0개 혹은 1개의 항목을 방출한다.
+- bodyToFlux() : 여러 항목을 검색하는 데 사용된다. 0개부터 N개까지의 항목을 방출한다.
 
 ### bodyToMono()
 bodyToMono() 메서드는 body를 Mono 인스턴스로 추출한다.
