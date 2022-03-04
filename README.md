@@ -44,6 +44,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Tasklet Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Tasklet_Step.md) : Tasklet 스텝
 
 ## Database
+- [Database connection pool](https://github.com/yoo-jaein/TIL/blob/main/Database/Database_connection_pool.md) : 데이터베이스 커넥션 풀
 - [DynamoDB review](https://github.com/yoo-jaein/TIL/blob/main/Database/DynamoDB_review.md) : DynamoDB 사용 후기
 - [MySQL auto_increment and Rollback](https://github.com/yoo-jaein/TIL/blob/main/Database/MySQL_auto_increment_and_Rollback.md) : MySQL에서 트랜잭션 롤백이 일어날 때 auto_increment 컬럼의 값은 어떻게 될까?
 - [RDB vs NoSQL](https://github.com/yoo-jaein/TIL/blob/main/Database/RDB_vs_NoSQL.md) : RDB vs NoSQL
@@ -168,3 +169,4 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [JWT](https://github.com/yoo-jaein/TIL/blob/main/Web/JWT.md) : JSON Web Token(JWT)
 - [Single Page Application](https://github.com/yoo-jaein/TIL/blob/main/Web/Single_Page_Application.md) : 서버사이드 렌더링과 클라이언트사이드 렌더링의 차이로 보는 싱글 페이지 애플리케이션(Single-Page Application)
 - [Timeout](https://github.com/yoo-jaein/TIL/blob/main/Web/Timeout.md) : 타임아웃의 종류
+- [Web server vs Web Application Server](https://github.com/yoo-jaein/TIL/blob/main/Web/Web_server_vs_Web_Application_Server.md) : 웹서버와 WAS의 차이점

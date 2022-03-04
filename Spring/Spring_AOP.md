@@ -37,6 +37,11 @@ JDK Dynamic Proxy는 JDK에 내장되어 있다. JDK Dynamic Proxy는 인터페�
 ## CGlib 기반 프록시
 CGlib는 오픈소스 라이브러리다. Enhancer를 바탕으로 프록시를 구현하는 방식이다. JDK Dynamic Proxy와 다르게 Reflection을 사용하지 않고 상속을 이용해서 타겟을 오버라이딩한다. 기본적으로 바이트 코드를 조작해서, 바이너리가 만들어지기 때문에 JDK Dynamic Proxy보다 성능이 좋다. 다만, final 객체 혹은 private 접근자로 된 메서드는 오버라이딩을 지원하지 않기 때문에 프록시 구현이 제약적이다.
 
+## Spring AOP의 단점
+
+aop 바닥
+
+
 ## 참고
 https://medium.com/@shohraafaque/proxies-in-java-static-dynamic-8ccc51d16346  
 https://sabarada.tistory.com/97  

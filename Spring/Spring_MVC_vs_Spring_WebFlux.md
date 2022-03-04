@@ -23,6 +23,10 @@ Spring MVC처럼 스레드가 블록되어 I/O가 끝날 때까지 Waiting하는
 
 만약 Non-blocking I/O 대신 blocking I/O를 사용하면 어떻게 될까? WebFlux는 상태적으로 적은 스레드풀을 유지하기 때문에 CPU 사용량이 높은 작업이 많거나 혹은 블로킹 I/O를 이용하여 프로그래밍하면 Event Loop가 Event를 빠르게 처리할 수 없다. Runnable 상태의 스레드가 CPU를 점유하여 전반적인 성능 하락이 발생한다. 동영상 인코딩, 혹은 암호화 모듈을 이용하여 암호화 복호화하는 애플리케이션은 WebFlux가 적절하지 않을 수 있다.
 
+## Reactor Meltdown
+Webflux가 무조건 빠르고 좋은 것은 아니다. Webflux 애플리케이션의 비지니스 로직들이 모두 Async + NonBlocking 으로 되어있다면 빠를 수 있다. Webflux의 어떤 Event 하나에 blocking 로직이 들어가게 될 경우, 해당 Event를 처리하는 스레드만 성능이 저하되는게 아니라 Event Loop 전체의 성능에 문제가 발생한다. Event Loop는 여러 채널의 Event를 모니터링하고 발생된 이벤트를 처리하고 큐에 있는 모든 Runnable을 가져가서 처리한다. 싱글 스레드로 동작하기 때문에 한쪽에서 지연이 발생하면 전체 루프에 영향이 간다. 한 쪽 채널에서 지연이 발생하면 다른 모든 채널에 지연이 발생해서 결국 모든 요청이 지연되는데 이걸 Reactor Meltdown이라고 한다. 그래서 Webflux에서 블로킹되는 동작을 매우 조심해야 하며, blocking되는 동작은 별도의 스케줄러를 통해 동작할 수 있도록 격리해줘야 한다.
+
 ## 참고
 [[NHN FORWARD 2020] 내가 만든 WebFlux가 느렸던 이유](https://youtu.be/I0zMm6wIbRI)  
+[[if(kakao)2021]Webflux로 막힘없는 프로젝트 만들기](https://if.kakao.com/session/107)  
 https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#webflux-framework-choice  

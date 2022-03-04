@@ -8,7 +8,7 @@
 
 [Blocking-NonBlocking-Synchronous-Asynchronous 참고](https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/)
 - 블로킹(Blocking)과 논블로킹(Non-blocking)은 호출되는 함수(callee)가 바로 리턴되는지에 따라 구분된다. 호출된 함수(callee)가 자신의 작업을 모두 마칠때까지 호출한 함수(caller)에게 제어권을 넘겨주지 않고 대기하게 만든다면 블로킹된 것이다. 만약 호출된 함수(callee)가 즉시 리턴해서 호출한 함수(caller)에게 제어권을 넘겨주고 호출한 함수(caller)가 다른 일을 할 수 있는 기회를 주면 논블로킹이다. 
-- 동기(Synchronous)와 비동기(Asynchronous)는 호출되는 함수(callee)의 작업 완료 여부를 누가 확인하냐에 따라 구분된다. 호출한 함수(caller)가 호출된 함수(callee)의 작업이 완료된 후 리턴을 기다리거나(블록), 호출된 함수(callee)로부터 바로 리턴받더라도(논블록) 호출한 함수(caller)가 호출된 함수(callee)의 작업 완료 여부를 계속 확인한다면 동기다. 호출된 함수(callee)에게 콜백을 전달해서 자신의 작업이 완료되었을 때 콜백을 실행하게 만들면 비동기다.
+- 동기(Synchronous)와 비동기(Asynchronous)는 호출되는 함수(callee)의 작업 완료 여부를 누가 확인하냐에 따라 구분된다. 호출한 함수(caller)가 호출된 함수(callee)의 작업이 완료된 후 리턴을 기다리거나, 호출된 함수(callee)로부터 바로 리턴받더라도 (블록/논블록 상관 없이) 호출한 함수(caller)가 호출된 함수(callee)의 작업 완료 여부를 확인한다면 동기다. 호출된 함수(callee)에게 콜백을 전달해서 자신의 작업이 완료되었을 때 콜백을 실행하게 만들면 비동기다.
 
 ## Asynchronous & Non-blocking
 유저의 요청 1건을 처리하기 위해 외부 시스템에 대한 수십여개의 요청이 필요한 시스템에서 가장 빠르고 효율적인 처리를 하려면 비동기 & 논블로킹으로 동작해야 한다. 만약 외부 시스템에 대한 수십 개의 요청이 모두 동기로 이루어진다면 수행시간은 전체 요청 수행시간의 합(sum(...request))이고, 비동기로 이루어진다면 수행시간은 전체 요청 수행시간 중 최대(max(...request))가 된다. 
