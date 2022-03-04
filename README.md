@@ -60,6 +60,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Cloud](https://github.com/yoo-jaein/TIL/blob/main/Infra/Cloud.md) : 클라우드 컴퓨팅의 분류와 특징
 - [DevOps](https://github.com/yoo-jaein/TIL/blob/main/Infra/DevOps.md) : 데브옵스의 등장 배경, 데브옵스와 도커의 관계
 - [Immutable infrastructure](https://github.com/yoo-jaein/TIL/blob/main/Infra/Immutable_infrastructure.md) : 불변 인프라의 등장 배경과 개념
+- [Load Balancing](https://github.com/yoo-jaein/TIL/blob/main/Infra/Load_Balancing.md) : 로드 밸런싱
 - [Server Virtualization](https://github.com/yoo-jaein/TIL/blob/main/Infra/Server_Virtualization.md) : 하이퍼바이저형 가상화와 컨테이너형 가상화의 차이
 - [Virtualization](https://github.com/yoo-jaein/TIL/blob/main/Infra/Virtualization.md) : 가상화
 
