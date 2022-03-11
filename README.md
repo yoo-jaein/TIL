@@ -122,6 +122,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Redis
 - [Embedded Redis](https://github.com/yoo-jaein/TIL/blob/main/Redis/Embedded_Redis.md) : 테스트 코드를 위한 임베디드 레디스
 - [How to implement Redis repository](https://github.com/yoo-jaein/TIL/blob/main/Redis/How_to_implement_Redis_repository.md) : Redis 저장소를 구현하는 방법
+- [Redis](https://github.com/yoo-jaein/TIL/blob/main/Redis/Redis.md) : Redis
 - [Redis data types](https://github.com/yoo-jaein/TIL/blob/main/Redis/Redis_data_types.md) : Redis 데이터 타입 알아보기
 - [RedisTemplate.opsForValue()](https://github.com/yoo-jaein/TIL/blob/main/Redis/RedisTemplate.opsForValue().md) : RedisTemplate.opsForValue()
 - [Spring Data Redis](https://github.com/yoo-jaein/TIL/blob/main/Redis/Spring_Data_Redis.md) : 스프링 데이터 Redis
