@@ -52,6 +52,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [RDB vs NoSQL](https://github.com/yoo-jaein/TIL/blob/main/Database/RDB_vs_NoSQL.md) : RDB vs NoSQL
 - [Show create table](https://github.com/yoo-jaein/TIL/blob/main/Database/Show_create_table.md) : MySQL에서 테이블의 생성 쿼리 알아내기
 - [System design for heavy read](https://github.com/yoo-jaein/TIL/blob/main/Database/System_design_for_heavy_read.md) : Read 부하를 줄이기 위한 시스템 디자인하기
+- [Transaction](https://github.com/yoo-jaein/TIL/blob/main/Database/Transaction.md) : 트랜잭션
 
 ## Elasticsearch
 - [Elasticsearch](https://github.com/yoo-jaein/TIL/blob/main/Elasticsearch/Elasticsearch.md) : 일래스틱서치
