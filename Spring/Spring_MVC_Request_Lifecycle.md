@@ -27,7 +27,55 @@ Spring MVC의 요청 라이프사이클
 ## DispatcherServlet
 > ```DispatcherServlet```은 Request Lifecycle 중앙에서 모든 흐름의 제어를 담당한다.
 
-사용자의 요청이 가장 먼저 도착하는 곳은 스프링의 DispatcherServlet이다. 대부분의 자바 기반의 MVC 프레임워크와 마찬가지로 스프링 MVC도 요청을 프론트 컨트롤러 서블릿으로 보낸다. 프론트 컨트롤러는 요청 처리의 핵심을 다른 컴포넌트들에 위임해 실제로 처리하게 하는 웹 애플리케이션 패턴이다. 스프링 MVC에서는 DispatcherServlet이 프론트 컨트롤러에 해당한다.
+사용자의 요청이 가장 먼저 도착하는 곳은 스프링의 DispatcherServlet이며 DispatcherServlet이 스프링 MVC의 핵심이다. 대부분의 자바 기반의 MVC 프레임워크와 마찬가지로 스프링 MVC도 요청을 프론트 컨트롤러 서블릿으로 보낸다. 프론트 컨트롤러는 요청 처리의 핵심을 다른 컴포넌트들에 위임해 실제로 처리하게 하는 웹 애플리케이션 패턴이다. 스프링 MVC에서는 DispatcherServlet이 프론트 컨트롤러에 해당한다.  
+
+```text
+DispatcherServlet -> FrameworkServlet -> HttpServletBean -> HttpServlet
+```
+DispatcherServlet은 부모 클래스에서 HttpServlet을 상속 받아서 사용하며 서블릿으로 동작한다. 스프링 부트는 DispatcherServlet을 서블릿으로 자동으로 등록하면서(DispatcherServlet을 서블릿으로 등록하면서 내장 WAS를 띄운다) 모든 경로("/")에 대해 매핑한다. 하위 어떤 경로를 호출하든 DispatcherServlet이 호출된다. 우리 만든 다른 서블릿은 어떻게 되나.. 더 자세한 경로가 우선순위가 높다. 그래서 기존에 등록한 서블릿도 동작한다. (DispatcherServlet이 우선순위가 더 낮을 것)  
+
+서블릿이 호출되면 HttpServlet이 제공하는 service()가 호출된다. 스프링 MVC는 DispatcherServlet의 부모인 FrameworkServlet에서 service()를 오버라이드 해놨다. FrameworkServlet.service()를 시작으로 여러 메서드가 쭉쭉 호출되면서 DispacherServlet.doDispatch()가 호출된다. 이 메서드가 제일 중요하다. 
+
+```java
+//org.springframework.web.servlet.DispatcherServlet 축약된 코드!!!
+protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	HttpServletRequest processedRequest = request;
+	HandlerExecutionChain mappedHandler = null;
+	ModelAndView mv = null;
+
+	// 1. 핸들러 조회
+	mappedHandler = getHandler(processedRequest); 
+	if (mappedHandler == null) {
+		noHandlerFound(processedRequest, response); // 없으면 404 NOT FOUND를 리턴한다.
+		return; 
+	}
+	
+	//2.핸들러 어댑터 조회 - 핸들러를 처리할 수 있는 어댑터를 찾아서 넘긴다
+	HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler()); // 루프를 돌면서 찾고 반환한다. 없으면 예외 발생한다.
+	
+	// 3. 핸들러 어댑터 실행 -> 4. 핸들러 어댑터를 통해 핸들러 실행 -> 5. ModelAndView 반환
+	mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+	
+	processDispatchResult(processedRequest, response, mappedHandler, mv,dispatchException);
+}
+
+private void processDispatchResult(HttpServletRequest request, HttpServletResponse response, HandlerExecutionChain mappedHandler, ModelAndView mv, Exception exception) throws Exception {
+	// 뷰 렌더링 호출
+	render(mv, request, response);
+}
+
+protected void render(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	View view;
+	String viewName = mv.getViewName(); 
+	
+	//6. 뷰 리졸버를 통해서 뷰 찾기, 7.View 반환
+	view = resolveViewName(viewName, mv.getModelInternal(), locale, request);
+	
+	// 8. 뷰 렌더링
+	view.render(mv.getModelInternal(), request, response);
+}
+```
+
 
 ## HandlerMapping
 > ```HandlerMapping```은 들어오는 요청의 속성과 조건을 기반으로 해당 요청을 처리할 개체를 선택한다.
