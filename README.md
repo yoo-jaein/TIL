@@ -46,6 +46,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Database
 - [Database connection pool](https://github.com/yoo-jaein/TIL/blob/main/Database/Database_connection_pool.md) : 데이터베이스 커넥션 풀
 - [DynamoDB review](https://github.com/yoo-jaein/TIL/blob/main/Database/DynamoDB_review.md) : DynamoDB 사용 후기
+- [Index](https://github.com/yoo-jaein/TIL/blob/main/Database/Index.md) : 인덱스
 - [MySQL auto_increment and Rollback](https://github.com/yoo-jaein/TIL/blob/main/Database/MySQL_auto_increment_and_Rollback.md) : MySQL에서 트랜잭션 롤백이 일어날 때 auto_increment 컬럼의 값은 어떻게 될까?
 - [MySQL Engine Architecture](https://github.com/yoo-jaein/TIL/blob/main/Database/MySQL_Engine_Architecture.md) : MySQL 엔진 아키텍처(MySQL 엔진과 스토리지 엔진)
 - [Partitioning and Sharding](https://github.com/yoo-jaein/TIL/blob/main/Database/Partitioning_and_Sharding.md) : 파티셔닝과 샤딩
