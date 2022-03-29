@@ -40,4 +40,5 @@ InnoDB의 경우 백그라운드 스레드에서 다음과 같은 작업을 수�
 - 잠금이나 데드락을 모니터링하기
 
 ## 참고
+https://www.oreilly.com/library/view/high-performance-mysql/9780596101718/ch01.html  
 Real MySQL 8.0 1권 4장
