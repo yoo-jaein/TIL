@@ -17,10 +17,9 @@ JPA 엔티티 매핑하기
 - 기본 키를 데이터베이스에 위임하려는 경우 IDENTITY, SEQUENCE, TABLE 세 가지 전략 중 하나를 선택한다.
 
 ## @GeneratedValue(strategy = GenerationType.IDENTITY)
-- MySQL의 auto_increment 기능이다.
-- 데이터베이스에 엔티티를 저장해야 기본 키 값을 받아올 수 있다.
+- MySQL의 auto_increment 기능처럼 데이터베이스에 엔티티를 저장해야 기본 키 값을 받아올 수 있을 때 사용하는 전략이다.
 - 이 전략을 사용하면 JPA는 기본 키 값을 받아오기 위해 데이터베이스를 추가로 조회해야 한다. 
-- Hibernate를 사용하면 내부적으로 Statement.getGeneratedKeys()를 사용해서 데이터베이스에 데이터를 저장하고 생성된 기본 키 값도 얻어오기 때문에 데이터베이스와 1번만 통신한다.
+- 만약 JPA 구현체로 Hibernate를 사용하면 내부적으로 Statement.getGeneratedKeys()를 사용해서 데이터베이스에 데이터를 저장하고 생성된 기본 키 값도 얻어오기 때문에 데이터베이스와 1번만 통신한다.
 - 이 전략에서 트랜잭션을 지원하는 쓰기 지연이 동작하지 않는다. 엔티티를 데이터베이스에 저장해야만 기본 키 값을 구할 수 있기 때문에 em.persist()를 호출하는 즉시 INSERT SQL이 데이터베이스에 전달된다.
 
 ## @Column
