@@ -112,6 +112,8 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [How to get JPAQueryFactory bean](https://github.com/yoo-jaein/TIL/blob/main/JPA/How_to_get_JPAQueryFactory_bean.md) : Querydsl에서 쿼리를 만들 때 필요한 JPAQueryFactory를 받아오는 방법
 - [Improve readability of Querydsl](https://github.com/yoo-jaein/TIL/blob/main/JPA/Improve_readability_of_Querydsl.md) : Querydsl 코드의 가독성을 높이는 방법
 - [JPA and ORM](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPA_and_ORM.md) : JPA, ORM, Hibernate의 개념 정리와 JPA를 사용해야 하는 이유 
+- [JPA Entity Mapping](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPA_Entity_Mapping.md) : JPA 엔티티 매핑하기 
+- [JPA FetchType](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPA_Entity_Mapping.md) : JPA 즉시 로딩(Eager Loading)과 지연 로딩(Lazy Loading) 
 - [JpaRepository and SimpleJpaRepository](https://github.com/yoo-jaein/TIL/blob/main/JPA/JpaRepository_and_SimpleJpaRepository.md) : JpaRepository와 그 구현체인 SimpleJpaRepository 들여다보기
 - [JPQL](https://github.com/yoo-jaein/TIL/blob/main/JPA/JPQL.md) : 객체 지향 쿼리 JPQL
 - [N+1 Query problem in JPA](https://github.com/yoo-jaein/TIL/blob/main/JPA/N+1_Query_problem_in_JPA.md) : N+1 문제의 발생 원인과 해결 방법
