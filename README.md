@@ -142,6 +142,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Spring
 - [@Configuration](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40Configuration.md) : 스프링 설정 클래스의 @Configuration
 - [@DateTimeFormat](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40DateTimeFormat.md) : @DateTimeFormat
+- [@Transactional](https://github.com/yoo-jaein/TIL/blob/main/Spring/%40Transactional.md) : @Transactional, 스프링의 트랜잭션
 - [application.yml](https://github.com/yoo-jaein/TIL/blob/main/Spring/application.yml.md) : application.yml
 - [Automating the generation of API documentation](https://github.com/yoo-jaein/TIL/blob/main/Spring/Automating_the_generation_of_API_documentation.md) : API 문서 자동화
 - [Controller and Service](https://github.com/yoo-jaein/TIL/blob/main/Spring/Controller_and_Service.md) : 스프링 컨트롤러와 서비스의 개념
