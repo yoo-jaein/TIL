@@ -9,6 +9,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 ## Architecture
 - [Monolithic vs Microservices](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Monolithic_vs_Microservices.md) : 모놀리식과 마이크로서비스 아키텍처
 - [Handling high traffic](https://github.com/yoo-jaein/TIL/blob/main/Architecture/Handling_high_traffic.md) : 대용량 트래픽 처리하기
+- [MVC](https://github.com/yoo-jaein/TIL/blob/main/Architecture/MVC.md) : MVC 아키텍처
 
 ## AWS
 - [Autoscaling](https://github.com/yoo-jaein/TIL/blob/main/AWS/Autoscaling.md) : 로드 밸런서와 AWS EC2의 오토스케일링
@@ -44,6 +45,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Tasklet Step](https://github.com/yoo-jaein/TIL/blob/main/Batch/Tasklet_Step.md) : Tasklet 스텝
 
 ## Database
+- [B-Tree](https://github.com/yoo-jaein/TIL/blob/main/Database/B-Tree.md) : B-Tree, B+Tree
 - [Database connection pool](https://github.com/yoo-jaein/TIL/blob/main/Database/Database_connection_pool.md) : 데이터베이스 커넥션 풀
 - [DynamoDB review](https://github.com/yoo-jaein/TIL/blob/main/Database/DynamoDB_review.md) : DynamoDB 사용 후기
 - [Index](https://github.com/yoo-jaein/TIL/blob/main/Database/Index.md) : 인덱스
