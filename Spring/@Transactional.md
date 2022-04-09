@@ -396,7 +396,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 - 롤백 시 적절한 수정 사항을 적용한다(실제 롤백 또는 롤백 전용 설정). 
 - 등록된 동기화 콜백을 트리거한다(트랜잭션 동기화가 활성화된 경우). 
 
-PlatformTransactionManager에 선언되었던 getTransaction(), commit(), rollback()을 구현하고 있다. commit()과 rollback()의 내부에는 processCommit(), processRollback()으로 커밋과 롤백을 처리한다. 그런데 processCommit()과 processRollback() 내부에서 추상 메서드인 doCommit(), doRollback()을 사용하고 있는 것을 볼 수 있다. 다양한 트랜잭션 매니저의 구현체(DataSourceTransactionManager, JpaTransactionManager, JtaTransactionManager 등)에서 이 doCommit()과 doRollback()을 구현하고 있다. 이렇게 구현체 별로 다른 동작을 하게 만드는 디자인 패턴을 템플릿 메서드 패턴릿(Template Method Pattern)이라 한다.
+PlatformTransactionManager에 선언되었던 getTransaction(), commit(), rollback()을 구현하고 있다. commit()과 rollback()의 내부에는 processCommit(), processRollback()으로 커밋과 롤백을 처리한다. 그런데 processCommit()과 processRollback() 내부에서 추상 메서드인 doCommit(), doRollback()을 사용하고 있는 것을 볼 수 있다. 다양한 트랜잭션 매니저의 구현체(DataSourceTransactionManager, JpaTransactionManager, JtaTransactionManager 등)에서 이 doCommit()과 doRollback()을 구현하고 있다. 이렇게 구현체 별로 다른 동작을 하게 만드는 디자인 패턴을 템플릿 메서드 패턴(Template Method Pattern)이라 한다.
 
 ```java
 package org.springframework.orm.jpa;
@@ -548,7 +548,7 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 ```
 스프링 트랜잭션의 Aspect를 만드는 클래스다. invokeWithinTransaction()에서 호출하는 createTransactionIfNecessary()는 AbstractPlatformTransactionManager의 getTransaction()을 호출한다. 마찬가지로 completeTransactionAfterThrowing()에서 rollback()을 호출하고, commitTransactionAfterReturning()에서 commit()을 호출한다.
 
-## 스프링의 트랜잭션 동작 방식
+## 트랜잭션을 위한 프록시 객체가 생성되는 과정 살펴보기
 @Transactional이 붙은 클래스와 메서드는 어떤 방식으로 TransactionInterceptor을 거치게 될까? Spring Boot를 사용하는 경우, Auto Configuration에 의해 TransactionAutoConfiguration이 빈으로 등록된다.
 
 ### TransactionAutoConfiguration
@@ -824,7 +824,7 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 	...
 }
 ```
-이 쯤되면 기억이 안 나겠지만, TransactionAspectSupport 클래스도 이미 만난 적이 있다. 이 클래스는 다른 여러 템플릿 메서드에 위임하는 Around-Advice 기반의 하위 클래스에 대한 대리자 클래스다. TransactionAspectSupport가 있기 때문에 다양한 Aspect 시스템에서 스프링의 기본 트랜잭션 인프라를 이용해서 Aspect를 구현할 수 있는 것이다. 전략 디자인 패턴(Strategy Pattern)이 적용된 케이스다. 전략 디자인 패턴은 실행 중에 알고리즘을 선택할 수 있게 하는 디자인 패턴이다. 특정한 계열의 알고리즘들을 정의하고 각 알고리즘을 캡슐화하기 때문에 그 계열에 속한 여러 알고리즘들을 자유롭게 교체할 수 있는 것이 특징이다.
+이 쯤되면 기억이 안 나겠지만, TransactionAspectSupport 클래스도 이미 만난 적이 있다. 이 클래스는 다른 여러 템플릿 메서드에 위임하는 Around-Advice 기반의 하위 클래스에 대한 대리자 클래스다. TransactionAspectSupport가 있기 때문에 다양한 Aspect 시스템에서 스프링의 기본 트랜잭션 인프라를 이용해서 Aspect를 구현할 수 있는 것이다. 이는 실행 중에 알고리즘을 선택할 수 있게 하는 디자인 패턴인 전략 디자인 패턴(Strategy Pattern)이 적용된 케이스다. 전략 디자인 패턴은 특정한 계열의 알고리즘들을 정의하고 각 알고리즘을 캡슐화하기 때문에 그 계열에 속한 여러 알고리즘들을 자유롭게 교체할 수 있는 것이 특징이다.
 
 ### TransactionAttributeSourcePointcut
 ```java
@@ -841,9 +841,326 @@ abstract class TransactionAttributeSourcePointcut extends StaticMethodMatcherPoi
 ```
 TransactionAttributeSourcePointcut은 이름에서 알 수 있듯이 AOP의 Pointcut이다. Pointcut은 Advice 메소드가 적용될 메소드를 골라준다. matches() 메서드의 파라미터 method에 Advice가 적용될 수 있는지 판별한다. 만약 method가 트랜잭션이 적용될 타겟이 맞다면 TransactionAttributeSource에 값이 존재할 것이고, 그렇지 않다면 null이 들어갈 것이다. 이제 matches()를 호출하는 코드를 찾아보자. 
 
+### AopUtils
+```java
+package org.springframework.aop.support;
+
+public abstract class AopUtils {
+	...
+	public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasIntroductions) {
+		...
+		for (Class<?> clazz : classes) {
+			Method[] methods = ReflectionUtils.getAllDeclaredMethods(clazz);
+			for (Method method : methods) {
+				if (introductionAwareMethodMatcher != null ?
+					introductionAwareMethodMatcher.matches(method, targetClass, hasIntroductions) :
+					methodMatcher.matches(method, targetClass)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+	...
+}
+```
+다양한 곳에서 matches()를 호출하고 있을 것이다. 우리가 관심있는 부분은 '트랜잭션 프록시를 위해 AOP가 어떻게 적용되는지'이기 때문에 AopUtils라는 클래스를 확인해야 한다. AopUtils는 AOP를 지원하기 위한 유틸리티 메서드가 담긴 클래스다. 그 중에 canApply() 메서드는 주어진 Pointcut이 클래스에 적용될 수 있는지 확인하는 메서드다.  
+
+methodMatcher.matches(method, targetClass)에 위에서 본 TransactionAttributeSourcePointcut의 matches()가 적용된다. methodMatcher.matches()의 usages를 찾아보면 MethodMatcher 인터페이스의 matches로 연결될텐데, 이 MethodMatcher 인터페이스의 (조금 먼) 자식 클래스가 바로 TransactionAttributeSourcePointcut이다.  
+
+이제 AopUtils의 canApply()를 어디서 호출하는지 확인해보자. 
+```java
+	...
+	public static List<Advisor> findAdvisorsThatCanApply(List<Advisor> candidateAdvisors, Class<?> clazz) {
+		if (candidateAdvisors.isEmpty()) {
+			return candidateAdvisors;
+		}
+		List<Advisor> eligibleAdvisors = new ArrayList<>();
+		for (Advisor candidate : candidateAdvisors) {
+			if (candidate instanceof IntroductionAdvisor && canApply(candidate, clazz)) {
+				eligibleAdvisors.add(candidate);
+			}
+		}
+		boolean hasIntroductions = !eligibleAdvisors.isEmpty();
+		for (Advisor candidate : candidateAdvisors) {
+			if (candidate instanceof IntroductionAdvisor) {
+				// already processed
+				continue;
+			}
+			if (canApply(candidate, clazz, hasIntroductions)) {
+				eligibleAdvisors.add(candidate);
+			}
+		}
+		return eligibleAdvisors;
+	}
+	...
+```
+같은 클래스의 findAdvisorsThatCanApply() 메서드의 if 절에서 canApply()를 호출하고 있다. 이 메서드에는 파라미터로 클래스 하나와 Advisor 리스트 하나가 들어온다. Advisors 리스트 중에 Class에 적용할 수 있는 Advice 부분 집합을 결정한다. 이 메서드가 호출되는 곳은 AspectJProxyFactory와 AbstractAdvisorAutoProxyCreator다. 우리는 프록시 객체를 생성할 때 AspectJ를 사용하는 것이 아니기 때문에 AbstractAdvisorAutoProxyCreator로 가야 한다.
+
+### AbstractAdvisorAutoProxyCreator
+```java
+package org.springframework.aop.framework.autoproxy;
+
+public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyCreator {
+	
+	@Nullable
+	private BeanFactoryAdvisorRetrievalHelper advisorRetrievalHelper;
+	...
+	protected List<Advisor> findAdvisorsThatCanApply(
+		List<Advisor> candidateAdvisors, Class<?> beanClass, String beanName) {
+
+		ProxyCreationContext.setCurrentProxiedBeanName(beanName);
+		try {
+			return AopUtils.findAdvisorsThatCanApply(candidateAdvisors, beanClass);
+		}
+		finally {
+			ProxyCreationContext.setCurrentProxiedBeanName(null);
+		}
+	}
+}
+```
+이 클래스의 findAdvisorsThatCanApply()라는 메서드에서 AopUtils의 findAdvisorsThatCanApply()를 호출하고 있다. findAdvisorsThatCanApply() 메서드를 호출하는 곳을 찾아보자.
+
+```java
+	...
+	protected List<Advisor> findEligibleAdvisors(Class<?> beanClass, String beanName) {
+		List<Advisor> candidateAdvisors = findCandidateAdvisors();
+		List<Advisor> eligibleAdvisors = findAdvisorsThatCanApply(candidateAdvisors, beanClass, beanName);
+		extendAdvisors(eligibleAdvisors);
+		if (!eligibleAdvisors.isEmpty()) {
+			eligibleAdvisors = sortAdvisors(eligibleAdvisors);
+		}
+		return eligibleAdvisors;
+	}
+	...
+	protected List<Advisor> findCandidateAdvisors() {
+		Assert.state(this.advisorRetrievalHelper != null, "No BeanFactoryAdvisorRetrievalHelper available");
+		return this.advisorRetrievalHelper.findAdvisorBeans();
+	}
+```
+같은 클래스의 findEligibleAdvisors()의 두 번째 줄에서 호출하고 있다. 이 메서드는 findCandidateAdvisors() 메서드를 통해 후보(candidate) Advisors를 찾고, 그 중에서 모든 적합한(eligible) Advisors를 찾는다. 후보 Advisors를 찾기 위해 같은 메서드의 findCandidateAdvisors()를 호출하고 있으며, 이 메서드는 this.advisorRetrievalHelper의 findAdvisorBeans()를 호출하고 있다. this.advisorRetrievalHelper의 타입은 BeanFactoryAdvisorRetrievalHelper이므로 이 클래스를 열어 보자.
+
+### BeanFactoryAdvisorRetrievalHelper
+```java
+package org.springframework.aop.framework.autoproxy;
+
+public class BeanFactoryAdvisorRetrievalHelper {
+	...
+	public List<Advisor> findAdvisorBeans() {
+		...
+			advisorNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(
+				this.beanFactory, Advisor.class, true, false);
+			this.cachedAdvisorBeanNames = advisorNames;
+		}
+		...
+		List<Advisor> advisors = new ArrayList<>();
+		for (String name : advisorNames) {
+				...
+					try {
+						advisors.add(this.beanFactory.getBean(name, Advisor.class));
+					}
+				...
+		return advisors;
+	}
+	...
+}
+```
+이 메서드는 FactoryBeans를 무시하고 현재 생성 중인 빈을 제외하고 현재 빈 팩토리에서 적합한 모든 Advisor 빈을 찾는다. Advisor.class 타입으로 등록된 빈을 조회한 다음 리스트로 모아서 반환한다. 
+
+### AbstractAdvisorAutoProxyCreator
+```java
+package org.springframework.aop.framework.autoproxy;
+
+public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyCreator {
+	...
+	@Override
+	@Nullable
+	protected Object[] getAdvicesAndAdvisorsForBean(
+		Class<?> beanClass, String beanName, @Nullable TargetSource targetSource) {
+
+		List<Advisor> advisors = findEligibleAdvisors(beanClass, beanName);
+		if (advisors.isEmpty()) {
+			return DO_NOT_PROXY;
+		}
+		return advisors.toArray();
+	}
+	...
+}
+```
+다시 AbstractAdvisorAutoProxyCreator로 돌아가자. 복잡한 과정 끝에 드디어 후보 Advices 중 적합한 Advices를 찾아냈다. 만약 적합한 것이 하나도 없으면 DO_NOT_PROXY를 반환할 것이다. 이제 getAdvicesAndAdvisorsForBean() 메서드가 어디서 호출되는지 찾아보자.
+
+### AbstractAutoProxyCreator
+```java
+package org.springframework.aop.framework.autoproxy;
+
+public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
+	implements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware {
+	...
+	protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
+		...
+		// Advice가 있으면 프록시를 만든다.
+		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
+		if (specificInterceptors != DO_NOT_PROXY) {
+			this.advisedBeans.put(cacheKey, Boolean.TRUE);
+			Object proxy = createProxy(
+				bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
+			this.proxyTypes.put(cacheKey, proxy.getClass());
+			return proxy;
+		}
+
+		this.advisedBeans.put(cacheKey, Boolean.FALSE);
+		return bean;
+	}
+	...
+}
+```
+wrapIfNecessary() 메서드의 중간에 getAdvicesAndAdvisorsForBean()가 호출되는 것을 확인할 수 있다. 만약 아까 DO_NOT_PROXY가 반환되었다면 if 조건에 해당되지 않아서 프록시가 생성되지 않을 것이다. 드디어 코드에서 createProxy() 메서드를 찾아냈다. 여기서 만들어지는 프록시 객체는 일반적으로 JDK Dynamic Proxy 또는 CGLib 방식 중 하나로 생성될 것이며, 스프링 부트 2.0 이상을 쓰고 있기 때문에 CGLib 방식을 사용할 것임을 알 수 있다. 여기서 끝내도 되지만 프록시 객체를 생성하는 CGLib 코드도 잠깐 확인해보자.
+
+### Enhancer
+먼저 CGLib 방식이 어떻게 프록시 객체를 만드는지부터 알아 보자.
+
+```java
+package org.springframework.cglib.proxy;
+
+public class Enhancer extends AbstractClassGenerator {
+	...
+	public void setSuperclass(Class superclass) { ... }
+	public void setCallback(final Callback callback) { ... }
+	public Object create() { ... }
+	...
+}
+```
+CGLib은 Enhancer 클래스를 사용해서 프록시 객체를 생성한다. 주요 메서드는 다음과 같다.
+- setSuperClass() : 프록시를 적용할 타겟 클래스를 지정한다. CGLib은 상속을 사용하기 때문에 superClass라는 이름이 붙었다.
+- setCallback() : 프록시에 적용할 실행 로직을 설정한다.
+- create() : 프록시 객체를 생성한다.
+
+### CglibAopProxy
+```log
+2022-04-09 13:24:54.267 TRACE 7053 --- [           main] o.s.aop.framework.CglibAopProxy          : Creating CGLIB proxy: SingletonTargetSource for target object [com.example.demo.service.TransactionService@117b2cc6]
+```
+옛날 옛적에 이런 로그를 본 적이 있을 것이다. CglibAopProxy 클래스에서 CGLIB 프록시가 생성되었다고 한다. 이 클래스에서 로그가 출력되는 곳을 찾아 보자.
+
+```java
+package org.springframework.aop.framework;
+
+class CglibAopProxy implements AopProxy, Serializable {
+	...
+	@Override
+	public Object getProxy(@Nullable ClassLoader classLoader) {
+		if (logger.isTraceEnabled()) {
+			logger.trace("Creating CGLIB proxy: " + this.advised.getTargetSource());
+		}
+		...
+	}
+	...
+}
+```
+CglibAopProxy는 스프링 AOP 프레임워크를 위한 CGLIB 기반 AopProxy 구현체다. getProxy() 메서드의 두 번째 줄에서 로그가 출력되고 있다. getProxy()는 이름 그대로 프록시 객체를 반환하는 메서드다. 
+
+```java
+package org.springframework.aop.framework;
+
+class CglibAopProxy implements AopProxy, Serializable {
+	...
+	@Override
+	public Object getProxy(@Nullable ClassLoader classLoader) {
+		if (logger.isTraceEnabled()) {
+			logger.trace("Creating CGLIB proxy: " + this.advised.getTargetSource());
+		}
+
+		try {
+			...
+			// CGLIB Enhancer를 구성한다. 
+			Enhancer enhancer = createEnhancer();
+			if (classLoader != null) {
+				enhancer.setClassLoader(classLoader);
+				if (classLoader instanceof SmartClassLoader &&
+					((SmartClassLoader) classLoader).isClassReloadable(proxySuperClass)) {
+					enhancer.setUseCache(false);
+				}
+			}
+			enhancer.setSuperclass(proxySuperClass);
+			enhancer.setInterfaces(AopProxyUtils.completeProxiedInterfaces(this.advised));
+			enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
+			enhancer.setStrategy(new ClassLoaderAwareGeneratorStrategy(classLoader));
+
+			Callback[] callbacks = getCallbacks(rootClass);
+			Class<?>[] types = new Class<?>[callbacks.length];
+			for (int x = 0; x < types.length; x++) {
+				types[x] = callbacks[x].getClass();
+			}
+			// fixedInterceptorMap only populated at this point, after getCallbacks call above
+			enhancer.setCallbackFilter(new ProxyCallbackFilter(
+				this.advised.getConfigurationOnlyCopy(), this.fixedInterceptorMap, this.fixedInterceptorOffset));
+			enhancer.setCallbackTypes(types);
+
+			// 프록시 클래스를 생성하고 프록시 인스턴스를 생성한다.
+			return createProxyClassAndInstance(enhancer, callbacks);
+		}
+		...
+	}
+	...
+	protected Object createProxyClassAndInstance(Enhancer enhancer, Callback[] callbacks) {
+		enhancer.setInterceptDuringConstruction(false);
+		enhancer.setCallbacks(callbacks);
+		return (this.constructorArgs != null && this.constructorArgTypes != null ?
+			enhancer.create(this.constructorArgTypes, this.constructorArgs) :
+			enhancer.create());
+	}
+}
+```
+이 메서드의 코드를 자세히 살펴 보자. 먼저 Enhancer를 설정한다. 그 다음 같은 클래스의 메서드인 createProxyClassAndInstance(enhancer, callbacks)으로 해당 Enhancer를 던져준다. 그러면 내부적으로 enhancer.create()를 수행하고 생성된 프록시 객체를 리턴하는 것이다. 진짜 마지막으로 여기서 리턴되는 프록시 객체가 어디로 가는지만 연결해보자.
+
+### AbstractAutoProxyCreator
+```java
+package org.springframework.aop.framework.autoproxy;
+
+public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
+	implements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware {
+	...
+	protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
+		...
+		// Advice가 있으면 프록시를 만든다.
+		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
+		if (specificInterceptors != DO_NOT_PROXY) {
+			this.advisedBeans.put(cacheKey, Boolean.TRUE);
+			Object proxy = createProxy(
+				bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
+			this.proxyTypes.put(cacheKey, proxy.getClass());
+			return proxy;
+		}
+
+		this.advisedBeans.put(cacheKey, Boolean.FALSE);
+		return bean;
+	}
+	...
+}
+```
+아까 이 클래스에서 createProxy() 메서드를 발견했었다. 이 메서드를 확인해보자.
+
+```java
+package org.springframework.aop.framework.autoproxy;
+
+public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
+	implements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware {
+	...
+	protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
+		@Nullable Object[] specificInterceptors, TargetSource targetSource) {
+		...
+		return proxyFactory.getProxy(classLoader);
+	}
+	...
+}
+```
+createProxy() 메서드는 proxyFactory.getProxy(classLoader);를 리턴하고 있다. CglibAopProxy 클래스가 바로 여기의 proxyFactory이고 Enhancer를 설정하고 프록시 객체를 반환해주던 CglibAopProxy의 getProxy()가 여기서 호출된다. 
+
+
 ## 참고
 https://mangkyu.tistory.com/169  
 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html  
 https://sup2is.github.io/2021/11/11/about-spring-transaction.html  
 https://hwannny.tistory.com/98  
 https://ko.wikipedia.org/wiki/%EC%A0%84%EB%9E%B5_%ED%8C%A8%ED%84%B4  
+https://www.baeldung.com/cglib  
