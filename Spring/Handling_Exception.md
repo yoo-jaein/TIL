@@ -124,10 +124,10 @@ REST API에서는 일반적으로 Global Exception Handling 전략을 기반으�
 - 데이터가 있을 수도 있고 없을 수도 있는 API(예: 리스트를 반환하는 검색용 API)에서 검색 결과가 없을 때 요청에 대해 서버에서 정상적으로 처리해줬다는 의미로 200 SUCCESS를 보내거나 204 NO CONTENT를 보내는 케이스.
   - 만약 응답의 리스트가 비어있는게 오류라고 생각하면 4XX 코드를 보낼 수도 있음. 다만 일반적으로는 서버에서 정상적으로 처리되었다는 의미를 더 강조하여 2XX 코드를 씀.
 - 모든 처리에 대해 항상 200 SUCCESS를 보내는 케이스.
-  - HTTP는 전송 계층일 뿐 서버로부터 무언가 응답이 왔으면 성공으로 간주하는 것.
+  - 서버로부터 무언가 응답이 왔으면 성공으로 간주하는 것.
 
 ### 1) CustomResponseEntity 구현하기
-- 모든 처리에 대해 항상 HTTP 200 SUCCESS를 전달한다. 
+- 모든 처리에 대해 항상 HTTP 200 SUCCESS를 전달할 것이다. 
 
 ```java
 @Getter
@@ -150,7 +150,7 @@ public enum Result {
 }
 ```
 
-REST API의 응답으로 ResponseEntity를 반환하는데, 모든 처리에 대해 200 SUCCESS를 전달하는 경우 응답 데이터의 의미를 명확히 알 수 없다. 따라서 커스텀 응답 코드를 만들어주고 응답에 함께 내려줘야 한다. 이 때 응답 코드는 애플리케이션에서 발생할 수 있는 여러 가지 상황을 표현할 수 있어야 한다. int형 code를 상황별로 유니크하게 구성하고 String형 message로 그 구체적인 상황을 전달해주어 클라이언트에서 각 코드를 쉽게 구분하고 이해할 수 있게 해주자.  
+REST API의 응답으로 ResponseEntity를 반환하는데, 모든 처리에 대해 200 SUCCESS를 전달하는 경우 응답 데이터의 의미를 명확히 알 수 없다. 따라서 이 경우 커스텀 응답 코드를 만들어주고 응답에 함께 내려줘야 한다. 이 때 응답 코드는 enum형으로 구현하며 애플리케이션에서 발생할 수 있는 여러 가지 상황을 표현할 수 있어야 한다. int형 code를 상황별로 유니크하게 구성하고 String형 message로 그 구체적인 상황을 전달해주어 클라이언트에서 각 코드를 쉽게 구분하고 이해할 수 있게 해주자.  
 
 ```java
 @Getter
@@ -257,8 +257,8 @@ public DocumentResponse getDocument(Long documentId) {
 만약 documentId에 해당하는 문서가 없다면 DocumentException이 던져진다. 그러면 handleDocumentException()에서 그 예외를 처리하고 CustomResponseEntity를 만들어 반환한다.
 
 ### 2) ErrorResponse 구현하고 ResponseEntity 사용하기
-- CustomResponseEntity를 만들지 않고 기존의 ResponseEntity를 그대로 활용
-- 특정 예외 상황에 대해 HTTP Status Code를 다르게 구성
+- CustomResponseEntity를 만들지 않고 기존의 ResponseEntity를 그대로 활용해보자.
+- 특정 예외 상황에 대해 HTTP Status Code를 다르게 구성한다.
 
 ```java
 @Getter
