@@ -153,6 +153,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [HttpServletRequest](https://github.com/yoo-jaein/TIL/blob/main/Spring/HttpServletRequest.md) : HttpServletRequest의 사용법
 - [Improving Spring WebFlux performance](https://github.com/yoo-jaein/TIL/blob/main/Spring/Improving_Spring_WebFlux_performance.md) : 스프링 웹플럭스 애플리케이션의 성능 개선하기
 - [Interceptor vs Filter vs AOP](https://github.com/yoo-jaein/TIL/blob/main/Spring/Interceptor_vs_Filter_vs_AOP.md) : 인터셉터 vs 필터 vs AOP
+- [Inversion of Control with Dependency Injection](https://github.com/yoo-jaein/TIL/blob/main/Spring/Inversion_of_Control_with_Dependency_Injection.md) : 헷갈리기 쉬운 IoC와 DI
 - [Logback](https://github.com/yoo-jaein/TIL/blob/main/Spring/Logback.md) : 스프링 부트 환경에서 Logback 사용법
 - [MaxUploadSizeExceededException](https://github.com/yoo-jaein/TIL/blob/main/Spring/MaxUploadSizeExceededException.md) : MaxUploadSizeExceededException 예외 해결하기
 - [POJO framework](https://github.com/yoo-jaein/TIL/blob/main/Spring/POJO_framework.md) : POJO(Plain Old Java Object) 프레임워크
