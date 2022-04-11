@@ -1,4 +1,5 @@
-# Spring Webflux
+# Reactive Programming and Spring Webflux
+반응형 프로그래밍과 스프링 부트
 
 ## 관련 용어 정리
 - Reactive는 I/O 이벤트에 반응하는 네트워크 컴포넌트, 마우스 이벤트에 반응하는 UI 컨트롤러 등 어떤 변화에 반응하는 것을 뜻한다.
