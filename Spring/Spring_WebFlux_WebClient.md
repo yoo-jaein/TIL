@@ -1,6 +1,7 @@
 # Spring Webflux WebClient
 
-## URI 경로
+## 사용 예시
+### URI 경로
 ```java
 // /products/2/attributes/13
 webClient.get()
@@ -10,7 +11,7 @@ webClient.get()
     .retrieve();
 ```
 
-## 리퀘스트 바디
+### 리퀘스트 바디
 ```java
 webClient.post()
     .uri("/user/" + userId)
@@ -18,7 +19,7 @@ webClient.post()
     .retrieve();
 ```
 
-## 쿼리 파라미터
+### 쿼리 파라미터
 ```java
 // /products/?name=AndroidPhone&color=black&deliveryDate=13/04/2019"
 webClient.get()
