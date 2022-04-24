@@ -28,6 +28,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Chunk-Oriented Processing](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunk_Oriented_Processing.md) : 청크 지향 프로세싱
 - [Chunksize](https://github.com/yoo-jaein/TIL/blob/main/Batch/Chunksize.md) : 청크 크기 정의하기
 - [Cron expression](https://github.com/yoo-jaein/TIL/blob/main/Batch/Cron_expression.md) : 크론 표현식
+- [High Performance Batch Processing](https://github.com/yoo-jaein/TIL/blob/main/Batch/High_Performance_Batch_Processing.md) : 고성능 일괄 처리
 - [Job](https://github.com/yoo-jaein/TIL/blob/main/Batch/Job.md) : 잡
 - [JobExecutionListener](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobExecutionListener.md) : 잡 리스너
 - [JobParameters](https://github.com/yoo-jaein/TIL/blob/main/Batch/JobParameters.md) : 잡 파라미터
