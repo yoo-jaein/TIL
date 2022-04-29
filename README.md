@@ -153,6 +153,7 @@ __오타, 오역, 잘못된 정보가 있다면 알려주세요.__
 - [Entity and DTO](https://github.com/yoo-jaein/TIL/blob/main/Spring/Entity_and_DTO.md) : 엔티티와 DTO의 개념, DTO를 반드시 사용해야 하는 이유
 - [Error and Exception](https://github.com/yoo-jaein/TIL/blob/main/Spring/Error_and_Exception.md) : 자바 Error와 Exception의 개념, 예외 처리 방법
 - [Handling Exception](https://github.com/yoo-jaein/TIL/blob/main/Spring/Handling_Exception.md) : 스프링 예외 처리하기
+- [Hot vs Cold Stream](https://github.com/yoo-jaein/TIL/blob/main/Spring/Hot_vs_Cold_Stream.md) : 핫 스트림과 콜드 스트림
 - [HttpServletRequest](https://github.com/yoo-jaein/TIL/blob/main/Spring/HttpServletRequest.md) : HttpServletRequest의 사용법
 - [Improving Spring WebFlux performance](https://github.com/yoo-jaein/TIL/blob/main/Spring/Improving_Spring_WebFlux_performance.md) : 스프링 웹플럭스 애플리케이션의 성능 개선하기
 - [Interceptor vs Filter vs AOP](https://github.com/yoo-jaein/TIL/blob/main/Spring/Interceptor_vs_Filter_vs_AOP.md) : 인터셉터 vs 필터 vs AOP
